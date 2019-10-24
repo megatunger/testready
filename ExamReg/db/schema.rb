@@ -12,15 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2019_10_22_113445) do
 
-  create_table "course_exams", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "course_students", force: :cascade do |t|
     t.integer "student_id"
     t.integer "course_id"
-    t.boolean "status"
+    t.boolean "banned"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_course_students_on_course_id"
@@ -30,14 +25,20 @@ ActiveRecord::Schema.define(version: 2019_10_22_113445) do
   create_table "courses", force: :cascade do |t|
     t.string "courseID", null: false
     t.string "name", null: false
-    t.integer "credit", null: false
+    t.integer "credit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "exam_schedules", force: :cascade do |t|
+    t.integer "exam_id"
+    t.integer "course_id"
+    t.date "start"
+    t.date "finish"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_exam_schedules_on_course_id"
+    t.index ["exam_id"], name: "index_exam_schedules_on_exam_id"
   end
 
   create_table "exams", force: :cascade do |t|
@@ -56,8 +57,12 @@ ActiveRecord::Schema.define(version: 2019_10_22_113445) do
   end
 
   create_table "rooms", force: :cascade do |t|
+    t.string "roomID"
+    t.integer "slot"
+    t.integer "exam_schedules_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["exam_schedules_id"], name: "index_rooms_on_exam_schedules_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -69,6 +74,8 @@ ActiveRecord::Schema.define(version: 2019_10_22_113445) do
     t.string "classID"
     t.string "major"
     t.string "faculty"
+    t.string "password"
+    t.string "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
