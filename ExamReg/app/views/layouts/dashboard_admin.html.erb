@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to TestReady</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link rel="shortcut icon" href="assets/images/favicon.ico">
+  <%= stylesheet_link_tag "bootstrap.min", 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag "metismenu.min", 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag "icons", 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag "style", 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <%= render partial: 'layouts/shared/header' %>
+  <%= yield %>
+  <%= render partial: 'layouts/shared/footer' %>
+</body>
+
+<!-- jQuery  -->
+<%= javascript_include_tag "jquery.min" %>
+<%= javascript_include_tag "bootstrap.bundle.min" %>
+<%= javascript_include_tag "jquery.slimscroll" %>
+<%= javascript_include_tag "waves.min" %>
+
+<!-- App js -->
+<%= javascript_include_tag "app.js" %>
+
+</html>

@@ -1,0 +1,38 @@
+<!-- Begin page -->
+<div class="accountbg" style = "background: url(<%=image_path "restaurant.png"%>)"></div>
+<div class="wrapper-page">
+  <div class="card card-pages shadow-none">
+
+    <div class="card-body">
+      <div class="">
+        <img src=<%=asset_path("clip-sign-up.png") %> class="img-fluid" alt="Responsive image">
+      </div>
+      <h5 class="font-18 text-center">Khôi phục mật khẩu</h5>
+
+      <%= form_for :password, url: passwords_path do |form| %>
+        <div class="col-12">
+          <div class="alert alert-info alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            Vui lòng nhập <b>địa chỉ email</b> và chúng tôi sẽ hướng dẫn bạn bước tiếp theo!
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-12">
+            <%= form.label "Địa chỉ email" %>
+            <%= form.text_field :email, type: 'email', :required => true, :class => 'form-control' %>
+          </div>
+        </div>
+
+        <div class="form-group text-center m-t-20">
+          <div class="col-12">
+              <%= form.submit "Khôi phục mật khẩu", :class => 'btn btn-primary btn-block btn-lg waves-effect waves-light'  %>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+
+  </div>
+</div>
+<!-- END wrapper -->

@@ -3,8 +3,17 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
+# Send Email
+gem 'sendgrid-ruby'
+
+# Generate minified js file
+gem 'sprockets'
+
 # Library to read excel file
 gem 'rubyXL'
+
+# Library to encrypt authenticate
+gem 'clearance'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
