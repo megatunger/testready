@@ -4,3 +4,10 @@
 require_relative 'config/application'
 
 Rails.application.load_tasks
+
+require 'sprockets/rails/task'
+Sprockets::Rails::Task.new(Rails.application) do |t|
+  t.environment = lambda { Rails.application.assets }
+  t.assets = %w( application.js application.css )
+  t.keep = 5
+end

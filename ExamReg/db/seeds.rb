@@ -75,18 +75,22 @@ def parseStudentCourseBanned
   (1..last_row-1).each do |i|
     student = Student.find_by_studentID(worksheet[i][0].value.to_i)
     course =  Course.find_by_courseID(worksheet[i][1].value)
-    puts "CHECK --> #{student.id} --> #{course.id}"
     x = CourseStudent.where(student_id: student.id, course_id: course.id).first
     puts x.id
     if !x.nil?
-      puts "OKAY"
       x.banned = 1
       x.save
     end
   end
 end
 
+def createRootAccount
+  User.create(email: "test", password: "test", role: "admin")
+  User.create(email: "megatunger@gmail.com", password: "1", role: "admin")
+end
+
 parseStudent
 parseCourse
 parseStudentCourse
 parseStudentCourseBanned
+createRootAccount

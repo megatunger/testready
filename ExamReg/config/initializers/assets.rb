@@ -18,3 +18,4 @@ Rails.application.config.assets.precompile += %w( bootstrap.min.css metismenu.mi
 _fontawesome.scss _materialdesignicons.scss _outline.scss _themify-icon.scss)
 Rails.application.config.assets.precompile += %w(jquery.min.js bootstrap.bundle.min.js jquery.slimscroll.js waves.min.js app.js)
 
+Rails.application.config.assets.paths << Rails.root.join("app", "assets", "images")

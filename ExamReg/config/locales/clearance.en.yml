@@ -1,0 +1,61 @@
+---
+en:
+  clearance:
+    models:
+      clearance_mailer:
+        change_password: Change your password
+  clearance_mailer:
+    change_password:
+      closing: Nếu bạn không thực hiện yêu cầu này, vui lòng bỏ qua email.
+      link_text: Thay đổi mật khẩu
+      opening: "TestReady xin gửi bạn đường link để thay đổi mật khẩu:"
+  flashes:
+    failure_after_create: Sai email hoặc mật khẩu.
+    failure_after_update: Password can't be blank.
+    failure_when_forbidden: Please double check the URL or try submitting
+      the form again.
+    failure_when_not_signed_in: Vui lòng đăng nhập để sử dụng.
+  helpers:
+    label:
+      password:
+        email: Email address
+      password_reset:
+        password: Choose password
+      session:
+        password: Password
+      user:
+        password: Password
+    submit:
+      password:
+        submit: Reset password
+      password_reset:
+        submit: Save this password
+      session:
+        submit: Sign in
+      user:
+        create: Sign up
+  layouts:
+    application:
+      sign_in: Sign in
+      sign_out: Sign out
+  passwords:
+    create:
+      description: You will receive an email within the next few minutes. It
+        contains instructions for changing your password.
+    edit:
+      description: Your password has been reset. Choose a new password below.
+      title: Change your password
+    new:
+      description: To be emailed a link to reset your password, please enter
+        your email address.
+      title: Reset your password
+  sessions:
+    form:
+      forgot_password: Quên mật khẩu?
+      sign_up: Sign up
+    new:
+      title: Sign in
+  users:
+    new:
+      sign_in: Sign in
+      title: Sign up

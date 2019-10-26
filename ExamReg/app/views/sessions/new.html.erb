@@ -1,0 +1,22 @@
+<!-- Begin page -->
+<div class="accountbg" style = "background: url(<%=image_path "restaurant.png"%>)"></div>
+<div class="wrapper-page">
+  <div class="card card-pages shadow-none">
+    <div class="card-body">
+      <div class="">
+        <img src=<%=asset_path("clip-sign-up.png") %> class="img-fluid" alt="Responsive image">
+      </div>
+      <h5 class="font-18 text-center">Vui lòng đăng nhập để sử dụng TestReady.</h5>
+      <% flash.each do |key, value| %>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+          <strong><%= value %></strong>
+        </div>
+      <% end %>
+      <%= render partial: 'sessions/form' %>
+    </div>
+  </div>
+</div>
+<!-- END wrapper -->
