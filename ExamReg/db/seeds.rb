@@ -76,17 +76,18 @@ def parseStudentCourseBanned
     student = Student.find_by_studentID(worksheet[i][0].value.to_i)
     course =  Course.find_by_courseID(worksheet[i][1].value)
     x = CourseStudent.where(student_id: student.id, course_id: course.id).first
-    puts x.id
     if !x.nil?
       x.banned = 1
       x.save
     end
   end
+  puts "Student Banned Updated"
 end
 
 def createRootAccount
-  User.create(email: "test", password: "test", role: "admin")
+  User.create(email: "test@gmail.com", password: "test", role: "admin")
   User.create(email: "megatunger@gmail.com", password: "1", role: "admin")
+  User.create(email: "ngattaro@gmail.com", password: "1", role: "student")
 end
 
 parseStudent

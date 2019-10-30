@@ -3,6 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
+# Enviroment variables
+gem 'figaro'
+
+# Real-time push data
+gem 'pusher'
+
 # Send Email
 gem 'sendgrid-ruby'
 

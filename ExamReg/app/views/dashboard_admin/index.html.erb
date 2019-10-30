@@ -1,3 +1,4 @@
+<% content_for(:html_title) { 'Dashboard' } %>
 <div class="wrapper">
   <div class="container-fluid">
     <!-- Page-Title -->
@@ -29,13 +30,15 @@
               <i class="mdi mdi-cube-outline bg-primary  text-white"></i>
             </div>
             <div>
-              <h5 class="font-16">Active Sessions</h5>
+              <h5 class="font-16">Tổng số sinh viên</h5>
             </div>
-            <h3 class="mt-4">43,225</h3>
+            <h3 class="mt-4">
+              <%= @students.count %>
+            </h3>
             <div class="progress mt-4" style="height: 4px;">
               <div class="progress-bar bg-primary" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
-            <p class="text-muted mt-2 mb-0">Previous period<span class="float-right">75%</span></p>
+            <p class="text-muted mt-2 mb-0">Tỉ lệ hoàn thành đăng kí<span class="float-right">75%</span></p>
           </div>
         </div>
       </div>
