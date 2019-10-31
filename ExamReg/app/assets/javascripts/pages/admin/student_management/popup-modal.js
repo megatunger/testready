@@ -22,8 +22,9 @@
                         const csrfToken = document.querySelector('[name="csrf-token"]').getAttribute('content');
                         $.get('/admin/student/deleteAll.json')
                             .done(function (data) {
-                                swal.insertQueueStep('Đã xoá!')
-                                resolve()
+                                table.clear().draw();
+                                loadData();
+                                resolve();
                             })
                     })
                 }

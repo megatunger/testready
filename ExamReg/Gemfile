@@ -3,6 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
+# Create processing queue job
+gem 'delayed_job_active_record'
+gem 'progress_job'
+
 # Enviroment variables
 gem 'figaro'
 

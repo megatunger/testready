@@ -9,20 +9,18 @@
             </p>
 
             <div class="m-b-30">
-              <form action="#" class="dropzone">
-                <div class="fallback">
-                  <input name="file" type="file" multiple="multiple">
+              <%= form_tag(uploadData_admin_student_management_index_path, :id => 'dropzone', multipart: true, :class => 'dropzone') do |form| %>
+                <div class="m-b-30">
+                    <div class="fallback">
+                        <%= file_field_tag "file" %>
+                      <input name="file" type="file" multiple="multiple">
+                    </div>
                 </div>
-              </form>
-            </div>
-
-            <div class="text-center m-t-15">
-              <button type="button" class="btn btn-primary waves-effect waves-light">Tải lên</button>
-            </div>
-
-          </div>
+              <% end %>
+           </div>
         </div>
       </div> <!-- end col -->
     </div> <!-- end row -->
   </div>
+</div>
 </div>
