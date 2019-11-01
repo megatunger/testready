@@ -45,6 +45,7 @@ function populateDataTable(data) {
 var table = $("#datatable-buttons").DataTable({
     lengthChange: false,
     buttons: ['copy', 'excel', 'pdf', 'colvis'],
+    order: [[ 9, "desc" ]]
 });
 
 $(document).ready(function() {

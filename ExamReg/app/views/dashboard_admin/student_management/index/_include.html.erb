@@ -1,4 +1,4 @@
-<% content_for(:html_title) { 'Students' } %>
+<% content_for(:html_title) { 'Quản lí học sinh' } %>
 
 <% content_for :css_includes do %>
   <%= stylesheet_link_tag "datatables/dataTables.bootstrap4.min.css" %>
@@ -10,6 +10,9 @@
 
   <!-- Dropzone -->
   <%= stylesheet_link_tag "dropzone/dist/dropzone.css" %>
+
+  <!-- Datepicker -->
+  <%= stylesheet_link_tag "bootstrap-datepicker/css/bootstrap-datepicker.min.css" %>
 <% end %>
 
 <% content_for :javascript_includes do %>
@@ -47,5 +50,9 @@
   <!-- Alertify js -->
   <%= javascript_include_tag "alertify/js/alertify.js"%>
   <%= javascript_include_tag "pages/admin/student_management/alert.js" %>
+
+  <!-- Datepicker js -->
+  <%= javascript_include_tag "bootstrap-datepicker/js/bootstrap-datepicker.min.js" %>
+  <%= javascript_include_tag "pages/admin/student_management/date-picker.js" %>
 
 <% end %>

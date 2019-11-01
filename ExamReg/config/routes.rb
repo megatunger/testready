@@ -17,8 +17,8 @@ Rails.application.routes.draw do
   get 'error/permission' => 'dashboard#fallback_permission'
 
   namespace :admin do
-    resources :dashboard_admin, controller: 'dashboard_admin', :path => "/dashboard"
-    resources :student_management, controller: 'student_management', :path => "/student" do
+    resources :dashboard_admin, controller: 'dashboard_admin', :path => "/dashboard", only: [:index]
+    resources :student_management, controller: 'student_management', :path => "/student", only: [:index, :create] do
       get '/deleteAll', :to => 'student_management#deleteAll', on: :collection
       post '/uploadData', :to => 'student_management#uploadData', on: :collection
       get '/importData', :to => 'student_management#importData', on: :collection

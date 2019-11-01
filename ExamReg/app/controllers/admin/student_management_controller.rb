@@ -3,10 +3,15 @@ module Admin
   class StudentManagementController < DashboardAdminController
 
     def index
+      @student = @students.new
       respond_to do |format|
         format.html { render :template => "dashboard_admin/student_management/index/index.html.erb" }
         format.json { render 'dashboard_admin/student_management/index/index.json.jbuilder'}
       end
+    end
+
+    def create
+      @student.save
     end
 
     def deleteAll
@@ -21,6 +26,18 @@ module Admin
     end
 
     def importData
+    end
+
+    private
+    def student_params
+      params.require(:student).permit(:studentID,
+                                      :firstName,
+                                      :lastName,
+                                      :birthday,
+                                      :sex,
+                                      :classID,
+                                      :major,
+                                      :faculty)
     end
   end
 
