@@ -25,4 +25,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :dashboard_student
+  #
+  # namespace :student do
+  #   resources :dashboard_student, controller: 'dashboard_student', :path => "/dashboard", only: [:index]
+  # end
+
 end
