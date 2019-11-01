@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= content_for?(:html_title) ? yield(:html_title) + " | TestReady" : "TestReady" %></title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <link rel="shortcut icon" href="assets/images/favicon.ico">
+  <%= stylesheet_link_tag "bootstrap.min", 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag "metismenu.min", 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag "icons", 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag "style", 'data-turbolinks-track': 'reload' %>
+
+  <!-- CSS include per view -->
+  <%= yield :css_includes %>
+</head>
+
+<body>
+<%= render partial: 'layouts/shared/header-student' %>
+<%= yield %>
+<%= render partial: 'layouts/shared/footer' %>
+</body>
+
+<!-- jQuery  -->
+<%= javascript_include_tag "jquery.min", 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag "bootstrap.bundle.min", 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag "jquery.slimscroll", 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag "waves.min", 'data-turbolinks-track': 'reload' %>
+
+<!-- App js -->
+<%= javascript_include_tag "app.js" %>
+
+<!-- JS include per view -->
+<%= yield :javascript_includes %>
+
+</html>
