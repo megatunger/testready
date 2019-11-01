@@ -106,8 +106,10 @@ ActiveRecord::Schema.define(version: 2019_10_31_095822) do
     t.string "confirmation_token", limit: 128
     t.string "remember_token", limit: 128, null: false
     t.string "role", limit: 64
+    t.integer "student_id"
     t.index ["email"], name: "index_users_on_email"
     t.index ["remember_token"], name: "index_users_on_remember_token"
+    t.index ["student_id"], name: "index_users_on_student_id"
   end
 
 end
