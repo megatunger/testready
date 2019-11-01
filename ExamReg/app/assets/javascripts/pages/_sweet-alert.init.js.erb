@@ -1,10 +1,3 @@
-/*
- Template Name: Stexo - Responsive Bootstrap 4 Admin Dashboard
- Author: Themesdesign
- Website: www.themesdesign.in
- File: Sweet Alert init js
- */
-
 !function ($) {
     "use strict";
 
@@ -45,17 +38,17 @@
         //Warning Message
         $('#sa-warning').click(function () {
             swal({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
+                title: 'Bạn có chắc chắn không?',
+                text: "Thao tác này không thể hoàn tác.",
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonClass: 'btn btn-success',
                 cancelButtonClass: 'btn btn-danger ml-2',
-                confirmButtonText: 'Yes, delete it!'
+                confirmButtonText: 'Chắc chắn'
             }).then(function () {
                 swal(
-                    'Deleted!',
-                    'Your file has been deleted.',
+                    'Thành công!',
+                    'Đã xoá toàn bộ sinh viên.',
                     'success'
                 )
             })
@@ -216,16 +209,18 @@
         //Danger
         $('#dynamic-alert').click(function () {
             swal.queue([{
-                title: 'Your public IP',
-                confirmButtonText: 'Show my public IP',
-                text: 'Your public IP will be received ' +
-                'via AJAX request',
+                title: 'Bạn có chắc chắn không?',
+                type: 'warning',
+                showCloseButton: true,
+                confirmButtonClass: 'btn btn-danger ml-2',
+                confirmButtonText: 'Chắc chắn',
+                text: 'Thao tác này không thể hoàn tác!',
                 showLoaderOnConfirm: true,
                 preConfirm: function () {
                     return new Promise(function (resolve) {
-                        $.get('https://api.ipify.org?format=json')
+                        $.get(<%= root_path %>+'admin/student/deleteAll.json')
                             .done(function (data) {
-                                swal.insertQueueStep(data.ip)
+                                swal.insertQueueStep('Đã xoá!')
                                 resolve()
                             })
                     })

@@ -4,7 +4,6 @@
   <header id="topnav">
     <div class="topbar-main">
       <div class="container-fluid">
-
         <!-- Logo-->
         <div>
           <a href=<%= root_path %> class="logo">
@@ -137,11 +136,11 @@
           <ul class="navigation-menu">
 
             <li class="has-submenu">
-              <a href="dashboard_admin.html"><i class="icon-accelerator"></i> Bảng điều khiển </a>
+              <a href=<%= admin_dashboard_admin_index_path %>><i class="icon-accelerator"></i> Bảng điều khiển </a>
             </li>
 
             <li class="has-submenu">
-              <a href="#"><i class="icon-profile"></i> Quản lý sinh viên </a>
+              <a href=<%= admin_student_management_index_path %>><i class="icon-profile"></i> Quản lý sinh viên </a>
 
             </li>
 
