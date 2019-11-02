@@ -1,15 +1,11 @@
-
-  class DashboardStudentController < DashboardController
-    layout 'dashboard_student'
-    before_action :checkRole
-
-    def index
-
-    end
+class DashboardStudentController < ApplicationController
+    #before_action :checkRole
+    before_action :setInstance
 
     private
-    def checkRole
-      redirect_to error_permission_path unless current_user.role == "student"
+    def setInstance
+      #@courses = Student.find(current_user.student_id).courses;
+      #puts @courses.to_yaml
     end
-  end
+end
 

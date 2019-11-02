@@ -1,4 +1,4 @@
-<% content_for(:html_title) { 'Quản lí sinh viên' } %>
+<% content_for(:html_title) { 'Quản lí khoá học' } %>
 
 <% content_for :css_includes do %>
   <%= stylesheet_link_tag "datatables/dataTables.bootstrap4.min.css" %>
@@ -37,7 +37,7 @@
   <%= javascript_include_tag "datatables/responsive.bootstrap4.min.js" %>
 
   <!-- Datatable init js -->
-  <%= javascript_include_tag "pages/admin/student_management/student-table.init.js" %>
+  <%= javascript_include_tag "pages/admin/course_management/course-table.init.js" %>
 
   <!-- Sweet-Alert  -->
   <%= javascript_include_tag "sweet-alert2/sweetalert2.min.js" %>

@@ -23,12 +23,9 @@ Rails.application.routes.draw do
       post '/uploadData', :to => 'student_management#uploadData', on: :collection
       get '/importData', :to => 'student_management#importData', on: :collection
     end
+    resources :course_management, controller: 'course_management', :path => "/course", only: [:index]
   end
-
-  resources :dashboard_student
-  #
-  # namespace :student do
-  #   resources :dashboard_student, controller: 'dashboard_student', :path => "/dashboard", only: [:index]
-  # end
-
-end
+  namespace :student do
+    resources :dashboard_student, controller: "dashboard_student", :path => "/dashboard", only: [:index]
+  end
+  end
