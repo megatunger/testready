@@ -1,4 +1,4 @@
-module Student
+module StudentControllers
   class DashboardStudentController < DashboardController
     layout 'dashboard_student'
     before_action :checkRole
