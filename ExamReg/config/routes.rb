@@ -25,7 +25,8 @@ Rails.application.routes.draw do
     end
     resources :course_management, controller: 'course_management', :path => "/course", only: [:index]
   end
-  namespace :student do
+
+  scope 'student', module: :student_controllers do
     resources :dashboard_student, controller: "dashboard_student", :path => "/dashboard", only: [:index]
   end
-  end
+end
