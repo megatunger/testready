@@ -3,7 +3,6 @@ module Admin
   class CourseManagementController < DashboardAdminController
 
     def index
-
       @course = @courses.new
       respond_to do |format|
         format.html { render :template => "dashboard_admin/course_management/index/index.html.erb" }
