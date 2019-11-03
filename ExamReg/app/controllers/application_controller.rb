@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
       redirect_to admin_dashboard_admin_index_path
     end
     if current_user.role == "student"
-      redirect_to student_dashboard_student_index_path
+      redirect_to dashboard_student_index_path
     end
   end
 
