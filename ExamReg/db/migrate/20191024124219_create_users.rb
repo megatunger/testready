@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :confirmation_token, limit: 128
       t.string :remember_token, limit: 128, null: false
       t.string :role, limit: 64
+      t.belongs_to :student
     end
 
     add_index :users, :email

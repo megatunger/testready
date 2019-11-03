@@ -1,0 +1,44 @@
+<div class="wrapper">
+  <div class="container-fluid">
+    <div class="page-title-box">
+      <div class="row align-items-center">
+        <div class="col-sm-6">
+          <h4 class="page-title">Trang chủ</h4>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-right">
+            <li class="breadcrumb-item">
+              <a href=<%=root_path%> >
+                <%= @App_Name %>
+              </a>
+            </li>
+            <li class="breadcrumb-item active">Trang chủ</li>
+          </ol>
+        </div>
+      </div>
+      <!-- end row -->
+    </div>
+    <% array = ["primary", "success", "infor", "warning", "danger"] %>
+    <%= form_for @courses, url:  dashboard_student_index_path do |f| %>
+    <div class="row">
+    <div class="col-xl-4">
+      <div class="card m-b-30">
+        <div class="card-body">
+
+          <div class="mini-stat-icon float-right">
+            <i class="mdi mdi-cube-outline bg-success  text-white"></i>
+          </div>
+          <h3 class="card-title font-16 mt-0"><%= f.label :name%></h3>
+          <p class="card-text"> INT 123456</p>
+          <div class="progress mt-4" style="height: 4px;">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <p class="text-muted mt-2 mb-0">Tỉ lệ hoàn thành đăng kí<span class="float-right">75%</span></p>
+          <a href="#" class="btn btn-success mt-2">Dang ki</a>
+        </div>
+      </div>
+    </div>
+    </div>
+      <% end %>
+    </div>
+</div>
