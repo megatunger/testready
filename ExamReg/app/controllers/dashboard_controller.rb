@@ -5,6 +5,5 @@ class DashboardController < ApplicationController
   def setInstance
     @students = Student.all
     @courses = Course.all
-    puts @courses.to_yaml
   end
 end
