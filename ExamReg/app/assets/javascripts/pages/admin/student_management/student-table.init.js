@@ -1,4 +1,5 @@
 var testDataUrl = "/admin/student.json"
+var deleteUrl = "/admin/student/deleteSelected"
 function loadData() {
     document.getElementById("loading").style.display = "block";
     $.ajax({
@@ -38,15 +39,81 @@ function populateDataTable(data) {
             student.major,
             student.faculty,
             student.updated_at,
+            ''
         ]);
     }
 }
 
+$('#select-all').on('click', function(){
+    // Get all rows with search applied
+    var rows = table.rows({ 'search': 'applied' }).nodes();
+    // Check/uncheck checkboxes for all rows in the table
+    $('input[type="checkbox"]', rows).prop('checked', this.checked);
+});
+
+// Handle click on checkbox to set state of "Select all" control
+$('#tbody').on('change', 'input[type="checkbox"]', function(){
+    // If checkbox is not checked
+    if(!this.checked){
+        var el = $('#select-all').get(0);
+        // If "Select all" control is checked and has 'indeterminate' property
+        if(el && el.checked && ('indeterminate' in el)){
+            // Set visual state of "Select all" control
+            // as 'indeterminate'
+            el.indeterminate = true;
+        }
+    }
+});
+
+function deleteSelect() {
+    var data = table.$('input[type="checkbox"]').serialize();
+    $.ajax({
+        type: 'POST',
+        url: deleteUrl + "?" + data,
+        contentType: "text/plain",
+        dataType: 'json',
+        success: function (data) {
+            loadData();
+        },
+        error: function (e) {
+            alert('Có lỗi xảy ra');
+            console.log(e)
+        }
+    });
+}
+
+
 var table = $("#datatable-buttons").DataTable({
     lengthChange: false,
-    buttons: ['copy', 'excel', 'pdf', 'colvis'],
-    order: [[ 9, "desc" ]]
+    buttons: [
+        {
+            text: 'Xoá đã chọn',
+            action: function ( e, dt, node, config ) {
+                deleteSelect()
+            }
+        },
+        , 'excel', 'pdf',
+    ],
+    columnDefs: [{
+        'targets': 0,
+        'searchable': false,
+        'orderable': false,
+        'className': 'dt-body-center',
+        'render': function (data, type, full, meta){
+            return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(full[1]).html() + '">';
+        }
+    }, {
+        'targets': 10,
+        'searchable': false,
+        'orderable': false,
+        'className': 'dt-body-center',
+        'render': function (data, type, full, meta){
+            return '<button id="editStudent" onclick = "editTap()">Sửa</button>';
+        }
+    }],
+    order: [[ 9, "desc" ]],
 });
+
 
 $(document).ready(function() {
     table.buttons().container()
@@ -58,4 +125,7 @@ $(document).ready(function() {
         loadData();
     });
 
+    $('#frm-example').on('submit', function(e){
+
+    });
 });

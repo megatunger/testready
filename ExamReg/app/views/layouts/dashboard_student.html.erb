@@ -5,6 +5,8 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
+  <%= javascript_include_tag "application.js", 'data-turbolinks-track': 'reload' %>
+
   <link rel="shortcut icon" href="assets/images/favicon.ico">
   <%= stylesheet_link_tag "bootstrap.min", 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag "metismenu.min", 'data-turbolinks-track': 'reload' %>
@@ -22,13 +24,14 @@
 </body>
 
 <!-- jQuery  -->
-<%= javascript_include_tag "jquery.min", 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag "application.js", 'data-turbolinks-track': 'reload' %>
+<%#= javascript_include_tag "jquery.min", 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag "bootstrap.bundle.min", 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag "jquery.slimscroll", 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag "waves.min", 'data-turbolinks-track': 'reload' %>
 
 <!-- App js -->
-<%= javascript_include_tag "app.js" %>
+<%= javascript_include_tag "app.js", 'data-turbolinks-track': 'reload' %>
 
 <!-- JS include per view -->
 <%= yield :javascript_includes %>

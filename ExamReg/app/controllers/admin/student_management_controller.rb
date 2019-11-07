@@ -11,12 +11,26 @@ module Admin
     end
 
     def create
-      @student.save
+      @student = @students.new(student_params)
+      if @student.valid?
+        @student.save
+        puts "SAVED!!!"
+      else
+      end
+
     end
 
     def deleteAll
       @students.destroy_all
       @students.reload
+      render json: {status: 'success'}, status: 200
+    end
+
+    def deleteSelected
+      list = params[:id]
+      list.each do |student_id = student_id.to_i|
+        @students.where(studentID: student_id).destroy_all
+      end
       render json: {status: 'success'}, status: 200
     end
 

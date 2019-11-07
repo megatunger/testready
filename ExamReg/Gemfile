@@ -3,6 +3,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '~> 2.6.x'
 
+gem 'jquery-rails'
+
+# Async partial
+gem 'render_async'
+
 # Create processing queue job
 gem 'delayed_job_active_record'
 gem 'progress_job'
