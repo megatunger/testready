@@ -22,6 +22,9 @@ Rails.application.routes.draw do
       get '/importData', :to => 'student_management#importData', on: :collection
     end
     resources :course_management, controller: 'course_management', :path => "/course", only: [:index]
+    resources :schedule_management, controller: 'schedule_management', :path => "/schedule", only: [:index, :create] do
+
+    end
   end
 
   scope 'student', module: :student_controllers do
