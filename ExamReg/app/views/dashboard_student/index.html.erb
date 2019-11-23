@@ -19,25 +19,46 @@
       <!-- end row -->
     </div>
     <% array = ["primary", "success", "infor", "warning", "danger"] %>
-
     <div class="row">
-    <div class="col-xl-4">
-      <div class="card m-b-30">
-        <div class="card-body">
-
-          <div class="mini-stat-icon float-right">
-            <i class="mdi mdi-cube-outline bg-success  text-white"></i>
-          </div>
-          <h3 class="card-title font-16 mt-0"><%= f.label :name%></h3>
-          <p class="card-text"> INT 123456</p>
-          <div class="progress mt-4" style="height: 4px;">
-            <div class="progress-bar bg-success" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-          <p class="text-muted mt-2 mb-0">Tỉ lệ hoàn thành đăng kí<span class="float-right">75%</span></p>
-          <a href="#" class="btn btn-success mt-2">Dang ki</a>
-        </div>
-      </div>
+      <div class="col-12">
+        <div class="card-columns">
+          <% @student.courses.each_with_index do |course| %>
+            <% color = returnColor(course)%>
+            <div class="card m-b-30">
+              <div class="card-body">
+                <div class="mini-stat-icon float-right">
+                  <i class="mdi mdi-cube-outline bg-<%= color%>  text-white"></i>
+                </div>
+                <!--          <h3 class="card-title font-16 mt-0"><%#= f.label :name%></h3>-->
+                <!--              <p class="card-text"><%#= course.name%></p>-->
+                <div>
+                  <h4 class="font-15">
+                    <%=course.name%>
+                  </h4>
+                  <h5 class="mt-4">
+                    <%=course.courseID %>
+                  </h5>
+                  <h6 class="mt-4">
+                    Số tín chỉ: <%=course.credit %>
+                  </h6>
+                  <!--                <h7 class="mt-4">-->
+                  <!--                  Số sinh vien: <%#=course.students.count %>-->
+                  <!--                </h7>-->
+                </div>
+                <div class="progress mt-4" style="height: 4px;">
+                  <div class="progress-bar bg-<%= color %>" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p class="text-muted mt-2 mb-0">Tỉ lệ hoàn thành đăng kí<span class="float-right">75%</span></p>
+                <a href="#" class="btn btn-<%= color%> mt-2">
+                  <%= returnText(course)%>
+                </a>
+              </div>
+            </div>
+          <% end %>
+         </div>
+       </div>
     </div>
-    </div>
-    </div>
+  </div>
 </div>
+
+
