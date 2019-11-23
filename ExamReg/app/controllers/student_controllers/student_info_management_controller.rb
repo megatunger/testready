@@ -1,14 +1,13 @@
-require 'delayed_job_active_record'
-module Admin
-  class StudentManagementController < DashboardAdminController
+module StudentControllers
+  class StudentInfoManagementController < DashboardStudentController
+    before_action :checkRole
     def index
       @student = @students.new
       respond_to do |format|
-        format.html { render :template => "dashboard_admin/student_management/index/index.html.erb" }
-        format.json { render 'dashboard_admin/student_management/index/index.json.jbuilder'}
+        format.html { render :template => "student_info_management/index.html.erb"}
+        format.json { render 'student_info_management/index/index.json.jbuilder'}
       end
     end
-
     def create
       @student.save
     end
@@ -116,4 +115,12 @@ module Admin
     end
   end
 end
+
+
+# private
+#     def checkRole
+#       redirect_to error_permission_path unless current_user.role == "student"
+#     end
+#   end
+# end
 
