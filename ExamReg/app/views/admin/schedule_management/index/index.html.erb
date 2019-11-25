@@ -1,0 +1,42 @@
+<%= render partial: 'dashboard_admin/schedule_management/index/include' %>
+<div class="wrapper">
+  <div class="container-fluid">
+    <!-- Page-Title -->
+    <div class="page-title-box">
+      <div class="row align-items-center">
+        <div class="col-sm-6">
+          <h4 class="page-title">Quản lí ca thi</h4>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-right">
+            <li class="breadcrumb-item"><a href=<%=root_path%>>TestReady</a></li>
+            <li class="breadcrumb-item active">Quản lí ca thi</li>
+          </ol>
+        </div>
+      </div>
+      <!-- end row -->
+    </div>
+
+    <div class = "pb-4">
+      <%= render partial: 'dashboard_admin/schedule_management/index/toolbar' %>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card m-b-30">
+          <div class="card-body">
+            <div class="container row align-items-center mb-4">
+              <h4 class="ml-3 mt-0 mr-3 header-title">Danh sách ca thi</h4>
+              <div id="loading" class="spinner-border text-primary" role="status" style = "display: none">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+            <%= render partial: 'dashboard_admin/schedule_management/index/tableSchedules' %>
+          </div>
+        </div>
+      </div> <!-- end col -->
+    </div> <!-- end row -->
+  </div>
+  <!-- end container-fluid -->
+</div>
+<!-- end wrapper -->

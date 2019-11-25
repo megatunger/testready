@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require popper
 //= require activestorage
 //= require turbolinks
+//= require bootstrap/modal

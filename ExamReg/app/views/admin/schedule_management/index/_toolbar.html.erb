@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row align-items-center">
+    <div class="col-sm-4">
+      <button id="refresh-button" type="button" class="mb-3 btn btn-primary btn-lg btn-block waves-effect waves-light">
+        <i class="mdi mdi-pencil-remove-outline"></i>
+        Upload danh sách phòng thi
+      </button>
+    </div>
+    <div class="col-sm-4">
+      <button type="button" class="mb-3 btn btn-success btn-lg btn-block waves-effect waves-light" data-toggle="modal" data-target=".bs-example-modal-lg">
+        <i class = "mdi mdi-calendar-plus"></i>
+        Thêm ca thi từ excel
+      </button>
+    </div>
+    <div class="col-sm-4">
+      <button id="refresh-button" type="button" class="mb-3 btn btn-warning btn-lg btn-block waves-effect waves-light">
+        <i class="mdi mdi-pencil-remove-outline"></i>
+        Thêm ca thi từ form
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<%= render partial: 'dashboard_admin/schedule_management/index/toolbar-addSchedule' %>
+<%= render partial: 'dashboard_admin/schedule_management/index/toolbar-inputExcel' %>
+

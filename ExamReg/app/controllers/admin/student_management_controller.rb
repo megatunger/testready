@@ -2,22 +2,28 @@ require 'delayed_job_active_record'
 module Admin
   class StudentManagementController < DashboardAdminController
 
+    respond_to :html, :json, :js
+
     def index
-      @student = @students.new
       respond_to do |format|
-        format.html { render :template => "dashboard_admin/student_management/index/index.html.erb" }
-        format.json { render 'dashboard_admin/student_management/index/index.json.jbuilder'}
+        format.html { render :template => "admin/student_management/index.html.erb" }
+        format.json { render 'admin/student_management/index/index.json.jbuilder'}
       end
     end
 
-    def create
-      @student = @students.new(student_params)
-      if @student.valid?
-        @student.save
-        puts "SAVED!!!"
-      else
-      end
+    def new
+      @student = @students.new
+      respond_modal_with @student
+    end
 
+    def edit
+      @student = @students.find(params[:id])
+      respond_modal_with @student
+    end
+
+    def create
+      @student = @students.create(student_params)
+      respond_modal_with @student, location: admin_student_management_index_path
     end
 
     def deleteAll
