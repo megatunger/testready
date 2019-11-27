@@ -5,8 +5,8 @@ module Admin
     def index
       @exam_schedule = @exam_schedules.new
       respond_to do |format|
-        format.html { render :template => "dashboard_admin/schedule_management/index/index.html.erb" }
-        format.json { render 'dashboard_admin/schedule_management/index/index.json.jbuilder'}
+        format.html { render :template => "admin/schedule_management/index/index.html.erb" }
+        format.json { render 'admin/schedule_management/index/index.json.jbuilder'}
       end
     end
     private
