@@ -17,5 +17,6 @@ jobs:
       working-directory: ExamReg
       run: |
         gem install bundler
+        sudo apt-get install libsqlite3-dev
         bundle install --jobs 4 --retry 3
         bundle exec rake
