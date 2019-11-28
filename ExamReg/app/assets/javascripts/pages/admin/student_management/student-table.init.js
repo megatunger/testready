@@ -39,7 +39,9 @@ function populateDataTable(data) {
             student.major,
             student.faculty,
             student.updated_at,
-            ''
+            '',
+            student.edit_link,
+            student.id
         ]);
     }
 }
@@ -67,9 +69,11 @@ $('#tbody').on('change', 'input[type="checkbox"]', function(){
 
 function deleteSelect() {
     var data = table.$('input[type="checkbox"]').serialize();
+    console.log(deleteUrl + "?" + data);
     $.ajax({
         type: 'POST',
         url: deleteUrl + "?" + data,
+
         contentType: "text/plain",
         dataType: 'json',
         success: function (data) {
@@ -82,6 +86,21 @@ function deleteSelect() {
     });
 }
 
+function deleteAStudent(id) {
+    $.ajax({
+        type: 'POST',
+        url: deleteUrl + "?id[]=" + id,
+        contentType: "text/plain",
+        dataType: 'json',
+        success: function (data) {
+            loadData();
+        },
+        error: function (e) {
+            alert('Có lỗi xảy ra');
+            console.log(e)
+        }
+    });
+}
 
 var table = $("#datatable-buttons").DataTable({
     lengthChange: false,
@@ -108,7 +127,9 @@ var table = $("#datatable-buttons").DataTable({
         'orderable': false,
         'className': 'dt-body-center',
         'render': function (data, type, full, meta){
-            return '<button id="editStudent" onclick = "editTap()">Sửa</button>';
+            var buttons_in_html = '<a id="editStudent" class="btn btn-outline-primary waves-effect waves-light" data-modal = "true" href='+full[11]+'>Sửa</a>';
+            buttons_in_html+='<a id="deleteStudent" class="ml-2 btn btn-outline-danger waves-effect waves-light" onclick="deleteAStudent('+full[1]+')">Xoá</a>'
+            return buttons_in_html;
         }
     }],
     order: [[ 9, "desc" ]],

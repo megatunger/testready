@@ -1,0 +1,40 @@
+<div class="form-group row">
+  <div class="col-sm-12">
+    <%= f.input :studentID, label: 'MSSV', error: 'Vui lòng nhập MSSV', class: 'form-control' %>
+  </div>
+</div>
+<div class="form-group row">
+  <div class="col-sm-12">
+    <%= f.input :lastName, label: 'Họ', error: 'Vui lòng nhập họ', class: 'form-control' %>
+  </div>
+</div>
+<div class="form-group row">
+  <div class="col-sm-12">
+    <%= f.input :firstName, label: 'Tên', error: 'Vui lòng nhập tên', class: 'form-control' %>
+  </div>
+</div>
+<div class="form-group row">
+  <div class="col-sm-12">
+    <%= f.input :birthday, label: 'Ngày sinh', error: 'Vui lòng nhập ngày sinh', as: :date, html5: true, class: 'form-control' %>
+  </div>
+</div>
+<div class="form-group row">
+  <div class="col-sm-12">
+    <%= f.input :sex, label: 'Giới tính', error: 'Vui lòng chọn giới tính', collection: ['Nam', 'Nữ'], :selected => @student.sex %>
+  </div>
+</div>
+<div class="form-group row">
+  <div class="col-sm-12">
+    <%= f.input :classID, label: 'Lớp', error: 'Vui lòng nhập tên lớp', class: 'form-control' %>
+  </div>
+</div>
+<div class="form-group row">
+  <div class="col-sm-12">
+    <%= f.input :major, label: 'Ngành', error: 'Vui lòng nhập tên ngành', class: 'form-control' %>
+  </div>
+</div>
+<div class="form-group row">
+  <div class="col-sm-12">
+    <%= f.input :faculty, label: 'Khoa', error: 'Vui lòng nhập tên khoa', class: 'col-sm-2 col-form-label' %>
+  </div>
+</div>

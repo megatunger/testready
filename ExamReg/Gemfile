@@ -4,6 +4,14 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '~> 2.6.x'
 
 gem 'jquery-rails'
+gem 'bootstrap'
+
+# Response website as many format
+#
+gem 'responders'
+
+# Faster building forms
+gem 'simple_form'
 
 # Async partial
 gem 'render_async'

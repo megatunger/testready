@@ -1,8 +1,0 @@
-function renderForm() {
-    $("#newStudentForm").html("<%= escape_javascript(render partial: 'dashboard_admin/student_management/new/newStudentForm', locals: {student: @student}) %>");
-}
-
-$("#newStudentButton").click( function()
-    {
-        renderForm();
-    });

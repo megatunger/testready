@@ -24,7 +24,7 @@ def parseStudent
       lopkhoahoc = rows[i][5].value
       khoa = rows[i][6].value
       nganh = rows[i][7].value
-      Student.create(studentID: mssv.to_i,
+      a = Student.create(studentID: mssv.to_i,
                      firstName: ten,
                      lastName: ho,
                      birthday: ngaysinh,
@@ -58,10 +58,12 @@ def parseStudentCourse
   last_row = rows.size
   last_column = rows.compact.max_by{|row| row.size}.size
   (1..last_row-1).each do |i|
+    puts(worksheet[i][0].value.to_i)
       student = Student.find_by_studentID(worksheet[i][0].value.to_i)
+      # byebug
       course =  Course.find_by_courseID(worksheet[i][1].value)
       if !course.nil?
-        # puts "OKAY"
+        puts "OKAY"
         course.students << student
       end
   end

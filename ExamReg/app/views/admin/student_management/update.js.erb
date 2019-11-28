@@ -1,0 +1,7 @@
+<% if @student.valid? %>
+$('#mainModal').modal('hide').on('hidden.bs.modal', function (e) {
+    loadData();
+});
+<% else %>
+$('#form_edit_student').html('<%=j render template: 'admin/student_management/edit' %>')
+<% end %>

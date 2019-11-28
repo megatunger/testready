@@ -1,0 +1,27 @@
+<div class="row align-items-center">
+  <div class="col-sm-3">
+    <button id="refresh-button" type="button" class="mb-3 btn btn-primary btn-lg btn-block waves-effect waves-light">
+      <i class="mdi mdi-refresh"></i>
+      Làm mới dữ liệu
+    </button>
+  </div>
+  <div class="col-sm-3">
+    <button type="button" class="mb-3 btn btn-success btn-lg btn-block waves-effect waves-light"
+            data-toggle="collapse" data-target="#inputXLS" aria-expanded="false" aria-controls="collapseExample">
+      <i class = "mdi mdi-database-import"></i>
+      Nhập dữ liệu Excel
+    </button>
+  </div>
+
+  <div class="col-sm-3">
+    <%= link_to "<i class = 'mdi mdi-pencil-plus-outline'></i> Thêm học sinh".html_safe, new_admin_student_management_index_path, class: 'mb-3 btn btn-primary btn-lg btn-block waves-effect waves-light', data: { modal: true } %>
+  </div>
+  <div class="col-sm-3">
+    <button type="button" class="mb-3 btn btn-danger btn-lg btn-block waves-effect waves-light" id = "dynamic-alert">
+      <i class = "mdi mdi-delete-forever"></i>
+      Xoá toàn bộ dữ liệu
+    </button>
+  </div>
+</div>
+
+<%= render partial: 'admin/student_management/index/toolbar-inputExcel' %>
