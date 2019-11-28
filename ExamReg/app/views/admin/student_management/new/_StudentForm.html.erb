@@ -15,12 +15,12 @@
 </div>
 <div class="form-group row">
   <div class="col-sm-12">
-    <%= f.input :birthday, label: 'Ngày sinh', error: 'Vui lòng nhập ngày sinh', as: :date, html5: true %>
+    <%= f.input :birthday, label: 'Ngày sinh', error: 'Vui lòng nhập ngày sinh', as: :date, html5: true, class: 'form-control' %>
   </div>
 </div>
 <div class="form-group row">
   <div class="col-sm-12">
-    <%= f.input :sex, label: 'Giới tính', error: 'Vui lòng chọn giới tính', collection: ['Nam', 'Nữ'] %>
+    <%= f.input :sex, label: 'Giới tính', error: 'Vui lòng chọn giới tính', collection: ['Nam', 'Nữ'], :selected => @student.sex %>
   </div>
 </div>
 <div class="form-group row">

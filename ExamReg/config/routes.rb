@@ -24,7 +24,8 @@ Rails.application.routes.draw do
       get '/importData', :to => 'student_management#importData', on: :collection
       get '/new', :to => 'student_management#new', on: :collection
       post '/', :to => 'student_management#create', on: :collection
-      get ':id/edit', :to => 'student_management#edit', on: :collection
+      get ':id/edit', :to => 'student_management#edit', on: :collection, as: :edit_student
+      patch '/:id', :to => 'student_management#update', on: :collection, as: :update_student
     end
     resources :course_management, controller: 'course_management', :path => "/course", only: [:index]
     resources :schedule_management, controller: 'schedule_management', :path => "/schedule", only: [:index, :create] do
