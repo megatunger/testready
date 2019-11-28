@@ -5,7 +5,7 @@ module Admin
     def index
       @exam = @exams.new
       respond_to do |format|
-        format.html { render :template => "admin/schedule_management/index/index.html.erb" }
+        format.html { render :template => "admin/schedule_management/index.html.erb" }
         format.json { render 'admin/schedule_management/index/index.json.jbuilder'}
       end
     end
@@ -21,7 +21,7 @@ module Admin
         @exam_schedules = ExamSchedule.where(course_id: params[:courseID].to_i, exam_id: params[:examID].to_i).to_a
       end
       respond_to do |format|
-        format.html { render :template => "dashboard_admin/schedule_management/show.html.erb" }
+        format.html { render :template => "admin/schedule_management/show.html.erb" }
       end
     end
     def showSchedule
