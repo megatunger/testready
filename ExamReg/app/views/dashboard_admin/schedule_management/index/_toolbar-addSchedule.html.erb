@@ -13,56 +13,44 @@
               <div class="col-12">
                 <div class="card" style = "margin-bottom: 0!important;">
                   <div class="card-body">
-                    <%= form_for @schedule, url:  admin_schedule_management_index_path do |f| %>
+                    <%= form_for @exam_schedule, url:  admin_schedule_management_index_path do |f| %>
                       <div class="form-group row">
-                        <%= f.label :studentID, 'MSSV', :class => 'col-sm-2 col-form-label' %>
+                        <%= f.label :exam_id, 'Kỳ thi', :class => 'col-sm-2 col-form-label' %>
                         <div class="col-sm-10">
-                          <%= f.text_field :studentID, :class => 'form-control' %>
+                          <%= f.collection_select :exam_id, @exams,:id,:name, {}, {class: 'form-control'} %>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <%= f.label :lastName, 'Họ', :class => 'col-sm-2 col-form-label' %>
+                        <%= f.label :course_id, 'Môn thi', :class => 'col-sm-2 col-form-label' %>
                         <div class="col-sm-10">
-                          <%= f.text_field :lastName, :class => 'form-control' %>
+                          <%= f.collection_select :course_id, @courses,:id,:name,{}, {class: 'form-control'} %>
                         </div>
                       </div>
+<!--                      <div class="form-group row">-->
+                        <%#= f.label :room_id, 'Phòng thi', :class => 'col-sm-2 col-form-label' %>
+<!--                        <div class="col-sm-10">-->
+                          <%#= f.collection_select :room_id, @rooms.order(:name),:id,:name,{}, {class: 'form-control'} %>
+<!--                        </div>-->
+<!--                      </div>-->
                       <div class="form-group row">
-                        <%= f.label :firstName, 'Tên', :class => 'col-sm-2 col-form-label' %>
-                        <div class="col-sm-10">
-                          <%= f.text_field :firstName, :class => 'form-control' %>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <%= f.label :birthday, 'Ngày sinh', :class => 'col-sm-2 col-form-label' %>
+                        <%= f.label :date, 'Ngày thi', :class => 'col-sm-2 col-form-label' %>
                         <div class="col-sm-10">
                           <div class="input-group">
-                            <%= f.text_field :birthday, :class => 'form-control', :id => 'datepicker-autoclose' %>
+                            <%= f.text_field :date, :class => 'form-control', :id => 'example-date-input', :type => 'date', :value => '11/11/2019'  %>
                             <div class="input-group-append bg-custom b-0"><span class="input-group-text"><i class="mdi mdi-calendar"></i></span></div>
                           </div><!-- input-group -->
                         </div>
                       </div>
                       <div class="form-group row">
-                        <%= f.label :sex, 'Giới tính', :class => 'col-sm-2 col-form-label' %>
+                        <%= f.label :start, 'Giờ bắt đầu', :class => 'col-sm-2 col-form-label' %>
                         <div class="col-sm-10">
-                          <%= f.select(:sex, options_for_select([['Nam', 0], ['Nữ', 1]]),{}, {:class => 'custom-select'}) %>
+                          <%= f.text_field :start, :class => 'form-control', :type => 'time', :id => 'example-time-input', :value => '08:00:00' %>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <%= f.label :classID, 'Lớp', :class => 'col-sm-2 col-form-label' %>
+                        <%= f.label :finish, 'Giờ kết thúc', :class => 'col-sm-2 col-form-label' %>
                         <div class="col-sm-10">
-                          <%= f.text_field :classID, :class => 'form-control' %>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <%= f.label :major, 'Ngành', :class => 'col-sm-2 col-form-label' %>
-                        <div class="col-sm-10">
-                          <%= f.text_field :major, :class => 'form-control' %>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <%= f.label :faculty, 'Khoa', :class => 'col-sm-2 col-form-label' %>
-                        <div class="col-sm-10">
-                          <%= f.text_field :faculty, :class => 'form-control' %>
+                          <%= f.text_field :finish, :class => 'form-control', :type => 'time', :id => 'example-time-input', :value => '10:00:00' %>
                         </div>
                       </div>
                       <div class="form-group">

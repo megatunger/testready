@@ -1,0 +1,29 @@
+
+<div class="wrapper">
+  <div class="container-fluid">
+    <!-- Page-Title -->
+    <div class="page-title-box">
+      <div class="row align-items-center">
+        <div class="col-sm-6">
+          <h4 class="page-title">Kỳ thi <%=@exam.name %></h4>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-right">
+            <li class="breadcrumb-item"><a href=<%=root_path%>>TestReady</a></li>
+            <li class="breadcrumb-item"><a>Quản lý lịch thi</a></li>
+            <li class="breadcrumb-item active"><a>Kỳ thi <%=@exam.name %></a></li>
+          </ol>
+        </div>
+      </div>
+      <!-- end row -->
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <!-- Left sidebar -->
+        <%= render partial:  'dashboard_admin/schedule_management/show/tableCourses'%>
+        <%= render partial: 'dashboard_admin/schedule_management/show/tableSchedules' %>
+        <!-- End Left sidebar -->
+  </div>
+</div>
+</div>
+</div>

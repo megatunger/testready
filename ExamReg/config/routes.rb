@@ -24,7 +24,11 @@ Rails.application.routes.draw do
       get '/importData', :to => 'student_management#importData', on: :collection
     end
     resources :course_management, controller: 'course_management', :path => "/course", only: [:index]
-    resources :schedule_management, controller: 'schedule_management', :path => "/schedule", only: [:index, :create] do
+
+    resources :schedule_management, controller: 'schedule_management', :path => "/exam", only: [:index, :create] do
+      post '/uploadData', :to => 'schedule_management#uploadData', on: :collection
+      get '/importData', :to => 'schedule_management#importData', on: :collection
+      get '/:examID' => 'schedule_management#showExam', on: :collection, as: :exams
 
     end
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_31_095822) do
+ActiveRecord::Schema.define(version: 2019_11_27_072803) do
 
   create_table "course_students", force: :cascade do |t|
     t.integer "student_id"
@@ -48,15 +48,28 @@ ActiveRecord::Schema.define(version: 2019_10_31_095822) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
+  create_table "exam_courses", force: :cascade do |t|
+    t.integer "exam_id"
+    t.integer "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_exam_courses_on_course_id"
+    t.index ["exam_id"], name: "index_exam_courses_on_exam_id"
+  end
+
   create_table "exam_schedules", force: :cascade do |t|
     t.integer "exam_id"
     t.integer "course_id"
-    t.date "start"
-    t.date "finish"
+    t.integer "room_id"
+    t.date "date"
+    t.time "start"
+    t.time "finish"
+    t.time "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_exam_schedules_on_course_id"
     t.index ["exam_id"], name: "index_exam_schedules_on_exam_id"
+    t.index ["room_id"], name: "index_exam_schedules_on_room_id"
   end
 
   create_table "exams", force: :cascade do |t|
@@ -75,7 +88,7 @@ ActiveRecord::Schema.define(version: 2019_10_31_095822) do
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.string "roomID"
+    t.string "name"
     t.integer "slot"
     t.integer "exam_schedules_id"
     t.datetime "created_at", null: false
