@@ -3,6 +3,7 @@ module Admin
   class StudentManagementController < DashboardAdminController
 
     respond_to :html, :json, :js
+    append_before_action :setStudent, only: [:edit, :update]
 
     def index
       respond_to do |format|
@@ -17,8 +18,13 @@ module Admin
     end
 
     def edit
-      @student = @students.find(params[:id])
       respond_modal_with @student
+    end
+
+    def update
+      puts params.inspect
+      @student.update(student_params)
+      respond_modal_with @student, location: admin_student_management_index_path
     end
 
     def create
@@ -58,6 +64,10 @@ module Admin
                                       :classID,
                                       :major,
                                       :faculty)
+    end
+
+    def setStudent
+      @student = @students.find(params[:id])
     end
   end
 
