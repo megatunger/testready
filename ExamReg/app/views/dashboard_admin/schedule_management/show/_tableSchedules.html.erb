@@ -1,0 +1,89 @@
+
+        <!-- Right Sidebar -->
+        <div class="email-rightbar mb-3" style = "margin-left: 400px">
+
+          <div class="card">
+
+            <div class="row p-3">
+              <div class="col-lg-4">
+                <form role="search" class="email-inbox">
+                  <div class="form-group mb-0">
+                    <input type="text" class="form-control rounded" placeholder="Search Your mail..">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                  </div>
+                </form>
+              </div>
+
+              <div class="col-lg-8">
+                <div class="btn-toolbar float-lg-right" role="toolbar">
+                  <div class="btn-group mo-mb-2">
+                    <button type="button" class="btn btn-primary waves-light waves-effect"><i class="fa fa-inbox"></i></button>
+                    <button type="button" class="btn btn-primary waves-light waves-effect"><i class="fa fa-exclamation-circle"></i></button>
+                    <button type="button" class="btn btn-primary waves-light waves-effect"><i class="far fa-trash-alt"></i></button>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+            <ul class="message-list">
+              <% @exam_schedules.each_with_index do |schedule, index| %>
+                <% course = Course.find(schedule.course_id) %>
+                <% room = Room.find(schedule.room_id) %>
+                <li>
+                  <div class="col-mail col-mail-1" style="width: 400px">
+                    <div class="checkbox-wrapper-mail" style="margin-top: 20px; margin-right: 30px">
+                      <input type="checkbox" id="chk1">
+                      <label for="chk1" class="toggle"></label>
+                    </div>
+                    <a class = "ml-0">
+                      <img class="mr-3 rounded-circle float-left mt-2" src="https://via.placeholder.com/150" alt="" height="40">
+                      <h6 class="mb-0 ml-1"><%= course.name %> </h6>
+                      <p class="text-muted mt-1 mb-0"><%= course.courseID %></p>
+                    </a>
+
+                  </div>
+                  <div class="col-mail col-mail-2" style="margin-left: 60px">
+
+                    <a href="#">
+                      <h6 class="mb-0"> <%= schedule.date.strftime "%d/%m/%Y" %> </h6>
+                      <p class="text-muted mt-1 mb-0"><%= schedule.start.strftime "%H:%M" %> - <%= schedule.finish.strftime "%H:%M" %> </p>
+                    </a>
+                    <div class="date" style="margin-right: 150px">
+                      <h6> <%=room.name %></h6>
+                    </div>
+                    <div class="date" style="margin-top: -10px">
+<!--                      <a href="#" type="" class="btn btn-primary waves-light waves-effect"> sdsd<i class="fa fa-exclamation-circle"></i></a>-->
+<!--                      <a class="mb-3 btn btn-primary btn-lg btn-block waves-effect waves-light"  href="#"><i class="fa fa-exclamation-circle"></i></a>-->
+                      <button type="button" class="btn btn-primary waves-light waves-effect ml-3"><i class="fa fa-exclamation-circle"></i></button>
+
+                    </div>
+                  </div>
+                </li>
+                <!-- end 1 -->
+              <% end %>
+
+            </ul>
+
+          </div>
+          <!-- card -->
+
+          <div class="row m-t-20">
+            <div class="col-7">
+              Showing 1 - 20 of 1,524
+            </div>
+            <div class="col-5">
+              <div class="btn-group float-right">
+                <button type="button" class="btn btn-sm btn-success waves-effect"><i class="fa fa-chevron-left"></i></button>
+                <button type="button" class="btn btn-sm btn-success waves-effect"><i class="fa fa-chevron-right"></i></button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- end Col-9 -->
+
+      </div>
+
+
