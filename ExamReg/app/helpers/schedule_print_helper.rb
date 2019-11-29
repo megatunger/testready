@@ -1,0 +1,2 @@
+module SchedulePrintHelper
+end

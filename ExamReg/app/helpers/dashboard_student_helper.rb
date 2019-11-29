@@ -1,14 +1,14 @@
 module DashboardStudentHelper
   def checkBanned(course)
-    return CourseStudent.where(student_id: @student.id, course_id: course.id).first.banned
+    return @courseStudents.where(student_id: @student.id, course_id: course.id).first.banned
   end
 
   def checkRegistration(course)
-    Registration.all.each_with_index do |registration|
+    @registrations.each_with_index do |registration|
       if registration.student_id == @student.id
           course.exam_schedules.each_with_index do |exam_schedule|
-            if registration.exam_schedule_id = exam_schedule.id
-              puts exam_schedule.id
+            if registration.exam_schedule_id == exam_schedule.id
+              # puts exam_schedule.id
               return true
             end
           end
