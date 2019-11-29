@@ -1,0 +1,7 @@
+<% if @room.valid? %>
+$('#mainModal').modal('hide').on('hidden.bs.modal', function (e) {
+    location.reload();
+});
+<% else %>
+$('#form_new_room').html('<%=j render template: 'admin/room_management/new' %>')
+<% end %>

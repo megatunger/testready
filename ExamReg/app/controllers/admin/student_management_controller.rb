@@ -22,7 +22,6 @@ module Admin
     end
 
     def update
-      puts params.inspect
       @student.update(student_params)
       respond_modal_with @student, location: admin_student_management_index_path
     end
