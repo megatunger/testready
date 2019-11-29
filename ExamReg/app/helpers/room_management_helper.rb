@@ -1,0 +1,2 @@
+module RoomManagementHelper
+end
