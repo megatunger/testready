@@ -1,16 +1,16 @@
-<%= render partial: 'admin/course_management/index/include' %>
+<%= render partial: 'admin/room_management/include' %>
 <div class="wrapper">
   <div class="container-fluid">
     <!-- Page-Title -->
     <div class="page-title-box">
       <div class="row align-items-center">
         <div class="col-sm-6">
-          <h4 class="page-title">Quản lí khoá học</h4>
+          <h4 class="page-title">Quản lí phòng thi</h4>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-right">
             <li class="breadcrumb-item"><a href=<%=root_path%>> <%=@App_Name%></a></li>
-            <li class="breadcrumb-item active">Quản lí khoá học</li>
+            <li class="breadcrumb-item active">Quản lí phòng thi</li>
           </ol>
         </div>
       </div>
@@ -19,13 +19,12 @@
 
     <div class="row">
       <div class="col-12">
-          <div class="card-body">
-            <%= render partial: 'admin/course_management/index/tableCourse' %>
-          </div>
+        <%= render partial: 'admin/room_management/show/leftSidebar' %>
+        <%= render partial: 'admin/room_management/show/rightSidebar' %>
+      </div>
+    </div>
+    <!-- End row -->
 
-      </div> <!-- end col -->
-    </div> <!-- end row -->
   </div>
   <!-- end container-fluid -->
 </div>
-<!-- end wrapper -->

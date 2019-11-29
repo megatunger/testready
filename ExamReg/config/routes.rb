@@ -35,6 +35,10 @@ Rails.application.routes.draw do
       get '/:examID' => 'schedule_management#showExam', on: :collection, as: :exams
 
     end
+
+    resources :room_management, controller: 'room_management', :path => "/room" do
+
+    end
   end
 
   scope 'student', module: :student_controllers do

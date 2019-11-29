@@ -1,0 +1,14 @@
+<!-- Left sidebar -->
+<div class="email-leftbar card">
+  <a href="email-compose.html" class="btn btn-danger rounded btn-custom btn-block waves-effect waves-light">Thêm phòng thi</a>
+
+  <h6 class="m-t-30">Danh sách phòng thi</h6>
+
+  <div class="mail-list m-t-10">
+    <% @rooms.each do |room| %>
+      <a href=<%=admin_room_management_path(room) %>> <span class="float-right"><%=room.slot%> chỗ</span> <i class="ti-star mr-2"></i> <%=room.name %> </a>
+    <% end %>
+  </div>
+
+</div>
+<!-- End Left sidebar -->
