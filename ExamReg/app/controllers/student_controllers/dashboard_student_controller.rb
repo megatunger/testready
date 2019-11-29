@@ -3,7 +3,7 @@ module StudentControllers
     layout 'dashboard_student'
     before_action :checkRole
     def index
-      @courses = @courses.new
+      @student = Student.find(current_user.student_id)
       respond_to do |format|
         format.html { render :template => "dashboard_student/index.html.erb" }
         format.json { render 'dashboard_student/index/index.json.jbuilder'}
