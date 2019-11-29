@@ -1,11 +1,3 @@
-
-/*
- Template Name: Stexo - Responsive Bootstrap 4 Admin Dashboard
- Author: Themesdesign
- Website: www.themesdesign.in
- File: Calendar init js
- */
-
 !function($) {
     "use strict";
 
@@ -43,10 +35,11 @@
             var y = date.getFullYear();
 
             $('#calendar').fullCalendar({
+                defaultView: 'agendaWeek',
                 header: {
                     left: 'prev,next today',
                     center: 'title',
-                    right: 'month,basicWeek,basicDay'
+                    right: 'agendaWeek,month'
                 },
                 editable: true,
                 eventLimit: true, // allow "more" link when too many events
