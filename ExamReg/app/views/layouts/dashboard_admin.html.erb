@@ -6,7 +6,9 @@
   <%= csp_meta_tag %>
 
   <link rel="shortcut icon" href="assets/images/favicon.ico">
+
   <%= javascript_include_tag "application.js", 'data-turbolinks-track': 'reload' %>
+
   <!--  Modal -->
   <%= javascript_include_tag "modal.js", 'data-turbolinks-track': 'reload'  %>
 
@@ -22,7 +24,9 @@
 
 <body>
   <%= render partial: 'layouts/shared/header' %>
-  <%= yield %>
+  <div id="primary-content">
+    <%= yield %>
+  </div>
   <%= render partial: 'layouts/shared/footer' %>
   <div id="modal-holder"></div>
 </body>
