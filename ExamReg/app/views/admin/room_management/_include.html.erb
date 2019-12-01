@@ -6,11 +6,18 @@
 <% end %>
 
 <% content_for :javascript_includes do %>
+  <script>
+      var room_id = $('#roomID').val();
+
+
+  </script>
   <%= javascript_include_tag "jquery-ui/jquery-ui.min.js" %>
   <%= javascript_include_tag "moment/moment.js" %>
   <%= javascript_include_tag "fullcalendar/js/fullcalendar.min.js" %>
   <%= javascript_include_tag "pages/admin/room_mangement/calendar-init" %>
 
-  <!--  Modal -->
-  <%= javascript_include_tag "modal.js" %>
+  <!-- Alertify js -->
+  <%= javascript_include_tag "alertify/js/alertify.js"%>
+  <%= javascript_include_tag "pages/admin/room_mangement/alert.js" %>
+
 <% end %>

@@ -39,6 +39,10 @@ Rails.application.routes.draw do
     resources :room_management, controller: 'room_management', :path => "/room" do
 
     end
+
+    scope path: 'api', as: 'api' do
+      get '/room-schedule/:id', :to => 'room_management#room_schedule'
+    end
   end
 
   scope 'student', module: :student_controllers do

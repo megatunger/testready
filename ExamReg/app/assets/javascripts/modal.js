@@ -2,7 +2,7 @@ $(function() {
     const modal_holder_selector = '#modal-holder';
     const modal_selector = '.modal';
 
-    $(document).on('click', 'a[data-modal]', function() {
+    $(document).on('click', 'a[data-modal]', function(e) {
         const location = $(this).attr('href');
         // Load modal dialog from server
         $.get(
@@ -11,6 +11,7 @@ $(function() {
         );
         return false;
     });
+
 
     $(document).on('ajax:success', 'form[data-modal]', function(event){
         const [data, _status, xhr] = event.detail;

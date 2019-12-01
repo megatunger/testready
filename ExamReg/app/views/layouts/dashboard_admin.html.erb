@@ -4,13 +4,17 @@
   <title><%= content_for?(:html_title) ? yield(:html_title) + " | TestReady" : "TestReady" %></title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-  <%= javascript_include_tag "application.js", 'data-turbolinks-track': 'reload' %>
 
   <link rel="shortcut icon" href="assets/images/favicon.ico">
+  <%= javascript_include_tag "application.js", 'data-turbolinks-track': 'reload' %>
+  <!--  Modal -->
+  <%= javascript_include_tag "modal.js", 'data-turbolinks-track': 'reload'  %>
+
   <%= stylesheet_link_tag "bootstrap.min", 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag "metismenu.min", 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag "icons", 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag "style", 'data-turbolinks-track': 'reload' %>
+
 
   <!-- CSS include per view -->
   <%= yield :css_includes %>
@@ -24,7 +28,6 @@
 </body>
 
 <!-- jQuery  -->
-<%#= javascript_include_tag "jquery.min", 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag "bootstrap.bundle.min", 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag "jquery.slimscroll", 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag "waves.min", 'data-turbolinks-track': 'reload' %>
