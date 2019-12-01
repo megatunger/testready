@@ -5,9 +5,9 @@
   <h6 class="m-t-30">Danh sách phòng thi</h6>
 
   <div class="mail-list m-t-10">
-    <a href=<%=admin_room_management_index_path %>> <span class="float-right"><%=@rooms.sum(:slot)%> chỗ</span> <i class="ti-star mr-2"></i> Tất cả </a>
+    <a href=<%=admin_room_management_index_path %> class='active'> <span class="float-right"><%=@rooms.sum(:slot)%> chỗ</span> <i class="ti-star mr-2"></i> Tất cả </a>
     <% @rooms.each do |room| %>
-      <a href=<%=admin_room_management_path(room) %>> <span class="float-right"><%=room.slot%> chỗ</span> <i class="ti-star mr-2"></i> <%=room.name %> </a>
+      <a href=<%=admin_room_management_path(room) %>><span class="float-right"><%=room.slot%> chỗ</span> <i class="ti-star mr-2"></i> <%=room.name %> </a>
     <% end %>
   </div>
 
