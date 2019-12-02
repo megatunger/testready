@@ -1,31 +1,10 @@
 <%= render partial: 'admin/room_management/include' %>
 <input type="hidden" id="roomID" value=-1>
-<div class="wrapper">
-  <div class="container-fluid">
-    <!-- Page-Title -->
-    <div class="page-title-box">
-      <div class="row align-items-center">
-        <div class="col-sm-6">
-          <h4 class="page-title">Quản lí phòng thi</h4>
-        </div>
-        <div class="col-sm-6">
-          <ol class="breadcrumb float-right">
-            <li class="breadcrumb-item"><a href=<%=root_path%>> <%=@App_Name%></a></li>
-            <li class="breadcrumb-item active">Quản lí phòng thi</li>
-          </ol>
-        </div>
-      </div>
-      <!-- end row -->
-    </div>
 
-    <div class="row">
-      <div class="col-12">
-        <%= render partial: 'admin/room_management/index/leftSidebar' %>
-        <%= render partial: 'admin/room_management/index/rightSidebar' %>
-      </div>
-    </div>
-    <!-- End row -->
-
+<div class="row">
+  <div class="col-12">
+    <%= render partial: 'admin/room_management/index/leftSidebar' %>
+    <%= render partial: 'admin/room_management/index/rightSidebar' %>
   </div>
-  <!-- end container-fluid -->
 </div>
+<!-- End row -->

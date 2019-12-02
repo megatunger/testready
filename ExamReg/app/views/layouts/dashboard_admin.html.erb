@@ -6,7 +6,9 @@
   <%= csp_meta_tag %>
 
   <link rel="shortcut icon" href="assets/images/favicon.ico">
+
   <%= javascript_include_tag "application.js", 'data-turbolinks-track': 'reload' %>
+
   <!--  Modal -->
   <%= javascript_include_tag "modal.js", 'data-turbolinks-track': 'reload'  %>
 
@@ -22,7 +24,28 @@
 
 <body>
   <%= render partial: 'layouts/shared/header' %>
-  <%= yield %>
+
+  <div class="wrapper">
+    <div class="container-fluid">
+      <!-- Page-Title -->
+      <div class="page-title-box">
+        <div class="row align-items-center">
+          <div class="col-sm-6">
+            <h4 class="page-title"><%= content_for(:html_title) %></h4>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-right">
+              <li class="breadcrumb-item"><a href=<%=root_path%>>TestReady</a></li>
+              <li class="breadcrumb-item active"><%= content_for(:html_title) %></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div id="primary-content">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
   <%= render partial: 'layouts/shared/footer' %>
   <div id="modal-holder"></div>
 </body>

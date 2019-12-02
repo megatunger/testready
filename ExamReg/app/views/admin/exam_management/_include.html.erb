@@ -1,0 +1,12 @@
+<% content_for(:html_title) { 'Quản lí lịch thi' } %>
+
+<% content_for :css_includes do %>
+
+<% end %>
+
+<% content_for :javascript_includes do %>
+
+  <!-- Alertify js -->
+  <%= javascript_include_tag "alertify/js/alertify.js", 'data-turbolinks-track': 'reload'%>
+  <%= javascript_include_tag "pages/admin/exam_management/alert.js" %>
+<% end %>

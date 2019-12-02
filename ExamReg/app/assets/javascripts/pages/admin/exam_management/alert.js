@@ -1,6 +1,6 @@
 "use strict";
 
-var baseURL = '/admin/room/';
+var baseURL = '/admin/exam/';
 
 (function() {
 
@@ -32,7 +32,7 @@ var baseURL = '/admin/room/';
     function sendDeleteRequest() {
         jQuery.ajax({
                 type: 'DELETE',
-                url: baseURL+'/'+ exam_id,
+                url: baseURL+'/'+ room_id,
                 contentType: "text/plain",
                 dataType: 'json',
                 success: function (data) {
@@ -50,9 +50,8 @@ var baseURL = '/admin/room/';
     var ga = ga || function() {};
 
     demo("#alertify-confirm", function (ev) {
-        console.log(ev);
-        // console.log( $("#alertify-confirm").attr("data-exam"));
-        alertify.confirm("Bạn có muốn xoá kì thi không?", function (ev) {
+        // console.log(room_id);
+        alertify.confirm("Bạn có muốn xoá lớp học không?", function (ev) {
             ev.preventDefault();
             sendDeleteRequest();
         }, function(ev) {

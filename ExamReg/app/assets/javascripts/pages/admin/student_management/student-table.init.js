@@ -1,5 +1,6 @@
-var testDataUrl = "/admin/student.json"
-var deleteUrl = "/admin/student/deleteSelected"
+var testDataUrl = "/admin/student.json";
+var deleteUrl = "/admin/student/deleteSelected";
+
 function loadData() {
     document.getElementById("loading").style.display = "block";
     $.ajax({
@@ -135,18 +136,15 @@ var table = $("#datatable-buttons").DataTable({
     order: [[ 9, "desc" ]],
 });
 
+table.buttons().container()
+    .appendTo('#datatable-buttons_wrapper .col-md-6:eq(0)');
 
-$(document).ready(function() {
-    table.buttons().container()
-        .appendTo('#datatable-buttons_wrapper .col-md-6:eq(0)');
 
+$(document).on('ready turbolinks:load', function() {
     loadData();
 
     $("#refresh-button").click(function() {
         loadData();
     });
 
-    $('#frm-example').on('submit', function(e){
-
-    });
 });
