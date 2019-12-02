@@ -1,0 +1,111 @@
+<% schedule = @regist_schedules %>
+<% course = Course.find(@regist_schedules.course_id) %>
+<% room = Room.find(@regist_schedules.room_id) %>
+<% regist = @regist_schedules.registrations %>
+<% exam = Exam.find(@regist_schedules.exam_id) %>
+<div style = "margin-top: 200px">
+<div class="modal-header">
+
+  <h5 class="modal-title mt-0" id="myLargeModalLabel">Danh sách sinh viên đăng kí</h5>
+
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="modal-body">
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card m-b-30">
+        <div class="card-body">
+          <div class="row" style="font-size: 16px;">
+            <div class="col-1"></div>
+            <div class="col-5" style="width: 40%; text-align: center; vertical-align: top;">
+              <address>
+                <strong>BỘ GIÁO DỤC VÀ ĐÀO TẠO HÀ NỘI</strong><br>
+                <strong>TRƯỜNG ĐẠI HỌC ABC</strong>
+              </address>
+            </div>
+            <div class ="col-5" style="width: 40%; text-align: center; vertical-align: top;">
+              <address>
+                <strong>CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</strong><br>
+                <strong>Độc lập - Tự do - Hạnh phúc</strong>
+              </address>
+            </div>
+          </div>
+          <div class="row mt-4" style="font-size: 16px;">
+            <div class="col-12" style="width: 40%; text-align: center; vertical-align: top; text-transform: uppercase">
+              <address>
+                <strong>DANH SÁCH SINH VIÊN DỰ THI - KỲ THI <%=exam.name %> </strong><br>
+              </address>
+            </div>
+          </div>
+          <div class="row" style="font-size: 14px">
+            <div class="col-2 ml-1"></div>
+            <div class="col-5">
+              <address>
+                <strong>Môn thi:</strong>  <%= course.name %><br>
+                <strong>Mã môn:</strong> <%= course.courseID %><br>
+                <strong>Số tín chỉ:</strong> <%= course.credit %>
+              </address>
+            </div>
+            <div class="col-4 float-right" >
+              <address>
+                <strong>Ngày thi:</strong> <%= schedule.date.strftime "%d/%m/%Y" %><br>
+                <strong>Giờ thi:</strong> <%= schedule.start.strftime "%H:%M" %> - <%= schedule.finish.strftime "%H:%M" %><br>
+                <strong>Phòng thi:</strong> <%=room.name %>
+              </address>
+            </div>
+          </div>
+
+          <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+            <thead>
+            <tr>
+              <th>STT</th>
+              <th>MSSV</th>
+              <th>Họ và tên</th>
+              <th>Ngày sinh</th>
+              <th>Lớp</th>
+              <th>Số tờ</th>
+              <th>Chữ ký</th>
+              <th>Ghi chú</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% regist.each_with_index do |reg, index| %>
+              <% student = Student.find(reg.student_id) %>
+              <tr>
+                <td><%= index+1 %></td>
+                <td><%=student.studentID %></td>
+                <td><%=student.lastName + " " %>  <%=student.firstName %></td>
+                <td><%=student.birthday %></td>
+                <td><%=student.classID %></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            <% end %>
+
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div> <!-- end col -->
+  </div> <!-- end row -->
+
+
+  <h7> Tổng số sinh viên: <%= regist.count %> </h7>
+</div>
+
+<div class="modal-footer">
+  <div class="d-print-none mo-mt-2">
+    <div class="float-right">
+      <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light"><i class="fa fa-print"></i></a>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+    </div>
+
+  </div>
+</div>
+</div>

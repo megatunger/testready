@@ -15,7 +15,10 @@ Rails.application.routes.draw do
   root to: 'application#index'
 
   namespace :admin do
+    # Dashboard
     resources :dashboard_admin, controller: "dashboard_admin", :path => "/dashboard", only: [:index]
+
+    # Student Management
     resources :student_management, controller: 'student_management', :path => "/student", only: [:index] do
 
       get '/deleteAll', :to => 'student_management#deleteAll', on: :collection
@@ -27,6 +30,8 @@ Rails.application.routes.draw do
       get ':id/edit', :to => 'student_management#edit', on: :collection, as: :edit_student
       patch '/:id', :to => 'student_management#update', on: :collection, as: :update_student
     end
+
+    # Course Management
     resources :course_management, controller: 'course_management', :path => "/course", only: [:index]
     resources :room_management, controller: 'room_management', :path => "/room"
     resources :exam_management, controller: 'exam_management', :path => "/exam", as: :exam, only:[:index, :new, :edit, :update, :create, :destroy] do

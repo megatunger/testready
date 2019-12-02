@@ -87,6 +87,7 @@ def parseStudentCourseBanned
 end
 
 def createRootAccount
+
   Room.create(name:"208-G2",slot: 20)
   Room.create(name:"209-G2",slot: 40)
   Exam.create(name: "Cuối kỳ")
@@ -94,9 +95,12 @@ def createRootAccount
   ExamCourse.create(course_id: 1, exam_id:1);
   ExamCourse.create(course_id: 2, exam_id:1);
   ExamCourse.create(course_id: 6, exam_id:1);
+  
   ExamSchedule.create(course_id: 1, exam_id: 1, date: Date.today, start: "07:00:00", finish: "09:00:00", duration: "2:00:00", room_id: 1 )
   ExamSchedule.create(course_id: 1, exam_id: 1, date: Date.today, start: "07:00:00", finish: "09:00:00", duration: "2:00:00", room_id: 1)
   ExamSchedule.create(course_id: 6, exam_id: 1, date: Date.today, start: "07:00:00", finish: "09:00:00", duration: "2:00:00", room_id: 2)
+  Registration.create(student_id: 1, exam_schedule_id: 1)
+  Registration.create(student_id: 2, exam_schedule_id: 1)
   User.create(email: "test@gmail.com", password: "test", role: "admin")
   User.create(email: "megatunger@gmail.com", password: "1", role: "admin")
   User.create(email: "ngattaro@gmail.com", password: "1", role: "student", student_id: 1)
