@@ -1,0 +1,12 @@
+<%= render partial: 'admin/exam_management/include' %>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card-columns" style = "column-count: 2!important;">
+      <%= render partial: 'admin/exam_management/index/newExamCard' %>
+      <% @exams.each do |exam| %>
+        <%= render partial: 'admin/exam_management/index/examCard', locals: {exam: exam} %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,14 +1,15 @@
 require 'delayed_job_active_record'
 module Admin
-  class ScheduleManagementController < DashboardAdminController
-    before_action :setInstance
+  class ScheduleManagementController < ExamManagementController
+    append_before_action :set_instance_exam, :set_instance_schedule
+
     def index
-      @exam = @exams.new
       respond_to do |format|
         format.html { render :template => "admin/schedule_management/index.html.erb" }
         format.json { render 'admin/schedule_management/index/index.json.jbuilder'}
       end
     end
+
     def showExam
       @exam = @exams.find(params[:examID].to_i)
       @exam_courses = Array.new
@@ -50,11 +51,12 @@ module Admin
     end
 
     private
-    def setInstance
-      @exams = Exam.all
-      @courses = Course.all
-      @rooms = Room.all
+    def set_instance_exam
+      @exam = @exams.find(params.require(:exam_id))
     end
 
+    def set_instance_schedule
+      @exam_schedules = @exam.exam_schedules
+    end
   end
 end

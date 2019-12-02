@@ -1,0 +1,7 @@
+<% if @exam.valid? %>
+$('#mainModal').modal('hide').on('hidden.bs.modal', function (e) {
+    location.reload();
+});
+<% else %>
+$('#form_new_exam').html('<%=j render template: 'admin/exam_management/new' %>')
+<% end %>

@@ -9,6 +9,7 @@ module Admin
 
     def show
     end
+
     def new
       @room = @rooms.new
       respond_modal_with @room

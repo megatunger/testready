@@ -1,0 +1,9 @@
+<div class="card m-b-30" style="border-color: #333;">
+  <div class="card-body">
+    <h3 class="card-title font-16 mt-0"><%= "Kỳ thi: #{exam.name}" %></h3>
+    <p class="card-text">Số môn thi: <%= exam.exam_courses.count %></p>
+    <a href="<%=admin_exam_schedule_index_path(exam)%>" class="btn btn-primary">Quản lí lịch thi</a>
+    <%= link_to "Sửa tên kì thi", edit_admin_exam_path(exam), class: 'btn btn-outline-warning waves-effect', data: { modal: true } %>
+    <button type="button" id="alertify-confirm" class="btn btn-outline-danger waves-effect" data-exam=<%=exam.id%>><i class="far fa-trash-alt"></i> Xoá kì thi </button>
+  </div>
+</div>

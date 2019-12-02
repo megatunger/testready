@@ -1,25 +1,3 @@
 <%= render partial: 'admin/schedule_management/index/include' %>
-<div class="wrapper">
-  <div class="container-fluid">
-    <!-- Page-Title -->
-    <div class="page-title-box">
-      <div class="row align-items-center">
-        <div class="col-sm-6">
-          <h4 class="page-title">Quản lí lịch thi </h4>
-        </div>
-        <div class="col-sm-6">
-          <ol class="breadcrumb float-right">
-            <li class="breadcrumb-item"><a href=<%=root_path%>>TestReady</a></li>
-            <li class="breadcrumb-item active">Quản lí lịch thi</li>
-          </ol>
-        </div>
-      </div>
-      <!-- end row -->
-    </div>
-    <%= render partial: 'admin/schedule_management/index/tableExams' %>
-      </div> <!-- end col -->
-    </div> <!-- end row -->
-  </div>
-  <!-- end container-fluid -->
-</div>
-<!-- end wrapper -->
+
+<%= render partial: 'admin/schedule_management/show/tableSchedules' %>
