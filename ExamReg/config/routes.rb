@@ -50,15 +50,9 @@ Rails.application.routes.draw do
   scope 'student', module: :student_controllers do
     # root to: 'student_info#index'
     resources :student_info_management, controller: "student_info_management", :path => "/student_info", only: [:index, :creat] do
-      get '/deleteAll', :to => 'student_info_management#deleteAll', on: :collection
-      post '/uploadData', :to => 'student_info_management#uploadData', on: :collection
-      get '/importData', :to => 'student_info_management#importData', on: :collection
     end
-  end
-
-  scope 'student', module: :student_controllers do
-    # root to: 'dashboard_student#index'
     resources :dashboard_student, controller: "dashboard_student", :path => "/dashboard", only: [:index]
+    get '/print-schedule', :to => 'schedule_print#index'
   end
 
   get 'error/permission' => 'dashboard#fallback_permission'

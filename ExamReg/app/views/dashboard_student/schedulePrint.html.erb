@@ -1,0 +1,124 @@
+<div class="wrapper">
+  <div class="container-fluid">
+    <!-- Page-Title -->
+    <div class="page-title-box">
+      <div class="row align-items-center">
+        <div class="col-sm-6">
+          <h4 class="page-title">IN LỊCH THI</h4>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-right">
+            <li class="breadcrumb-item"><a href="javascript:void(0);">TestReady</a></li>
+            <li class="breadcrumb-item active">In lịch thi</li>
+          </ol>
+        </div>
+      </div>
+      <!-- end row -->
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card m-b-30">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12">
+                <div class="invoice-title">
+                  <h3 class="m-t-0">
+                    <%= @App_Name %>
+                  </h3>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-6 text-center">
+                    <p>
+                      <strong>BỘ GIÁO DỤC VÀ ĐÀO TẠO</strong><br>
+                      TRƯỜNG ĐẠI HỌC ABC
+                    </p>
+                  </div>
+                  <div class="col-6 text-center">
+                    <p>
+                      <strong>CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM</strong><br>
+                      Độc lập - Tự do - Hạnh phúc
+                    </p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-5 m-t-30">
+                    <address>
+                      <strong>Họ và tên: </strong><%= @student.lastName + ' ' + @student.firstName%><br>
+                      <strong>Chương trình đào tạo: </strong><%= @student.major + ' - ' + @student.faculty %><br>
+                    </address>
+                  </div>
+                  <div class="col-5 m-t-30 text-left">
+                    <address>
+                      <strong>MSSV: </strong><%= @student.studentID%><br>
+                      <strong>Lớp khoá học: </strong><%= @student.classID%>
+                    </address>
+                  </div>
+                  <div class="col-2 m-t-30 text-left">
+                    <address>
+                      <strong>Ngày sinh: </strong><%= @student.birthday%><br>
+                      <strong>Giới tính: </strong><%= checkSex() %>
+                    </address>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12">
+                <div class="panel panel-default">
+                  <div class="">
+                    <div class="table-responsive">
+                      <table class="table">
+                        <thead>
+                        <tr>
+                          <td class="text-center"><strong>SBD</strong></td>
+                          <td class="text-center"><strong>Mã môn học</strong></td>
+                          <td class="text-center"><strong>Tên môn học</strong></td>
+                          <td class="text-center"><strong>Ngày thi</strong></td>
+                          <td class="text-center"><strong>Giờ thi</strong></td>
+                          <td class="text-center"><strong>Phòng thi</strong></td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                        <% @registrations.each_with_index do |registration| %>
+                        <% if registration.student_id == @student.id %>
+                        <% course = courseSchedule(registration)  %>
+                        <% exam_schedule = @exam_schedules.find(registration.exam_schedule_id)%>
+                        <tr>
+                            <td class="text-center"><%= registration.id %></td>
+                            <td class="text-center"><%= course.courseID %></td>
+                            <td class="text-center"><%= course.name %></td>
+                            <td class="text-center"><%= exam_schedule.date %></td>
+                            <td class="text-center"><%= exam_schedule.start.to_s(:time) %></td>
+                          <td class="text-center"><%= exam_schedule.room_id %></td>
+                          </tr>
+                        <% end  %>
+                        <% end %>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div class="d-print-none mo-mt-2">
+                      <div class="float-right">
+                        <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light"><i class="fa fa-print"></i></a>
+                        <a href="#" class="btn btn-primary waves-effect waves-light">Send</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div> <!-- end row -->
+
+          </div>
+        </div>
+      </div> <!-- end col -->
+    </div> <!-- end row -->
+
+  </div>
+  <!-- end container-fluid -->
+</div>
+<!-- end wrapper -->
