@@ -15,7 +15,10 @@ Rails.application.routes.draw do
   root to: 'application#index'
 
   namespace :admin do
+    # Dashboard
     resources :dashboard_admin, controller: "dashboard_admin", :path => "/dashboard", only: [:index]
+
+    # Student Management
     resources :student_management, controller: 'student_management', :path => "/student", only: [:index] do
 
       get '/deleteAll', :to => 'student_management#deleteAll', on: :collection
@@ -27,15 +30,19 @@ Rails.application.routes.draw do
       get ':id/edit', :to => 'student_management#edit', on: :collection, as: :edit_student
       patch '/:id', :to => 'student_management#update', on: :collection, as: :update_student
     end
+
+    # Course Management
     resources :course_management, controller: 'course_management', :path => "/course", only: [:index]
 
+    # Schedule Management
     resources :schedule_management, controller: 'schedule_management', :path => "/exam", only: [:index, :create] do
       post '/uploadData', :to => 'schedule_management#uploadData', on: :collection
       get '/importData', :to => 'schedule_management#importData', on: :collection
       get '/:examID' => 'schedule_management#showExam', on: :collection, as: :exams
+      get '/:examID/:scheduleID' => 'schedule_management#showRegistration', on: :collection, as: :schedule_regist
 
     end
-
+    # Room Management
     resources :room_management, controller: 'room_management', :path => "/room" do
 
     end

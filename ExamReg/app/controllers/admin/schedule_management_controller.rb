@@ -15,6 +15,7 @@ module Admin
       @exam.exam_courses.each do |ec|
         @exam_courses << @courses.find(ec.course_id)
       end
+
       if (params[:courseID] == nil)
         @exam_schedules = ExamSchedule.where(exam_id: params[:examID].to_i).to_a
       else
@@ -24,17 +25,10 @@ module Admin
         format.html { render :template => "admin/schedule_management/show.html.erb" }
       end
     end
-    def showSchedule
-      # @exam_courses = Array.new
-      # @exam_schedules = []
-      # @exam.exam_courses.each do |ec|
-      #   @exam_courses << @courses.find(ec.course_id)
-      #   @exam_schedules.push(ExamSchedule.where(course_id: ec.course_id, exam_id: ec.exam_id).to_a)
-      # end
-
-
+    def showRegistration
+      @regist_schedules = ExamSchedule.find(params[:scheduleID])
       respond_to do |format|
-        format.html { render :template => "dashboard_admin/schedule_management/show.html.erb" }
+        format.html { render :template => "admin/schedule_management/show/tableRegistrations.html.erb" }
       end
     end
 
@@ -48,7 +42,10 @@ module Admin
       # puts @exam_schedule.course_id.name;
       render plain: params.inspect
     end
-
+    def newCourse
+      @course = @course.new
+      respond_modal_with @course
+    end
     private
     def setInstance
       @exams = Exam.all
