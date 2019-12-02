@@ -1,0 +1,17 @@
+<div class="row" style="font-size: 14px">
+  <div class="col-2 ml-1"></div>
+  <div class="col-5">
+    <address>
+      <strong>Môn thi:</strong>  <%= @course.name %><br>
+      <strong>Mã môn:</strong> <%= @course.courseID %><br>
+      <strong>Số tín chỉ:</strong> <%= @course.credit %>
+    </address>
+  </div>
+  <div class="col-4 float-right" >
+    <address>
+      <strong>Ngày thi:</strong> <%= @regist_schedule.date.strftime "%d/%m/%Y" %><br>
+      <strong>Giờ thi:</strong> <%= @regist_schedule.start.strftime "%H:%M" %> - <%= @regist_schedule.finish.strftime "%H:%M" %><br>
+      <strong>Phòng thi:</strong> <%=@room.name %>
+    </address>
+  </div>
+</div>
