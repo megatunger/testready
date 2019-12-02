@@ -8,12 +8,22 @@ module DashboardStudentHelper
       if registration.student_id == @student.id
           course.exam_schedules.each_with_index do |exam_schedule|
             if registration.exam_schedule_id == exam_schedule.id
-              # puts exam_schedule.id
               return true
             end
           end
       end
     end
+    return false
+  end
+
+  def courseSchedule(registration)
+      @student.courses.each_with_index do |course|
+        course.exam_schedules.each_with_index do |exam_schedule|
+          if registration.exam_schedule_id == exam_schedule.id
+            return course
+          end
+        end
+      end
     return false
   end
 
@@ -35,5 +45,9 @@ module DashboardStudentHelper
     else return "Đăng ký"
     end
     # return checkBanned(course)? "Bạn đã bị cấm thi!" : "Đăng ký"
+  end
+
+  def checkSex()
+    return (@student.sex)? "Nữ" : "Nam"
   end
 end

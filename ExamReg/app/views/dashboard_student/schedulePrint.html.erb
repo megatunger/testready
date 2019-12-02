@@ -31,8 +31,8 @@
                 <div class="row">
                   <div class="col-6 text-center">
                     <p>
-                      <strong>ĐẠI HỌC QUỐC GIA HÀ NỘI</strong><br>
-                      TRƯỜNG ĐẠI HỌC CÔNG NGHỆ
+                      <strong>BỘ GIÁO DỤC VÀ ĐÀO TẠO</strong><br>
+                      TRƯỜNG ĐẠI HỌC ABC
                     </p>
                   </div>
                   <div class="col-6 text-center">
@@ -58,7 +58,7 @@
                   <div class="col-2 m-t-30 text-left">
                     <address>
                       <strong>Ngày sinh: </strong><%= @student.birthday%><br>
-                      <strong>Giới tính: </strong><%= @student.sex %>
+                      <strong>Giới tính: </strong><%= checkSex() %>
                     </address>
                   </div>
                 </div>
@@ -73,25 +73,30 @@
                       <table class="table">
                         <thead>
                         <tr>
-                          <td><strong>SBD</strong></td>
+                          <td class="text-center"><strong>SBD</strong></td>
                           <td class="text-center"><strong>Mã môn học</strong></td>
                           <td class="text-center"><strong>Tên môn học</strong></td>
-                          <td class="text-center"><strong>Số tín chỉ</strong></td>
-                          <td class="text-center"><strong>Ca thi</strong></td>
-                          <td class="text-right"><strong>Phòng thi</strong></td>
+                          <td class="text-center"><strong>Ngày thi</strong></td>
+                          <td class="text-center"><strong>Giờ thi</strong></td>
+                          <td class="text-center"><strong>Phòng thi</strong></td>
                         </tr>
                         </thead>
                         <tbody>
                         <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                        <% @registrations.each_with_index do |registration| %>
+                        <% if registration.student_id == @student.id %>
+                        <% course = courseSchedule(registration)  %>
+                        <% exam_schedule = @exam_schedules.find(registration.exam_schedule_id)%>
                         <tr>
-                          <td></td>
-                          <td class="text-center"></td>
-                          <td class="text-center"></td>
-                          <td class="text-right"></td>
-                          <td class=""></td>
-                          <td class=""></td>
-                        </tr>
-
+                            <td class="text-center"><%= registration.id %></td>
+                            <td class="text-center"><%= course.courseID %></td>
+                            <td class="text-center"><%= course.name %></td>
+                            <td class="text-center"><%= exam_schedule.date %></td>
+                            <td class="text-center"><%= exam_schedule.start.to_s(:time) %></td>
+                          <td class="text-center"><%= exam_schedule.room_id %></td>
+                          </tr>
+                        <% end  %>
+                        <% end %>
                         </tbody>
                       </table>
                     </div>
