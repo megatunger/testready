@@ -1,0 +1,19 @@
+
+<div class="email-leftbar card" style="width: 300px">
+  <%#= link_to "Thêm phòng thi", new_admin_room_management_path, class: 'btn btn-danger rounded btn-custom btn-block waves-effect waves-light', data: { modal: true } %>
+  <a href="#" class="btn btn-primary rounded btn-custom btn-block waves-effect waves-light">Thêm môn thi</a>
+
+  <h6 class="m-t-30">Môn thi hiện tại</h6>
+  <div class="mail-list m-t-10">
+    <% countt = ExamSchedule.where(exam_id: @exam.id).to_a.count %>
+    <a href=<%= "#{admin_exam_schedule_index_path(@exam)}" %> ><span class="float-right"><%= countt %></span><i class="ti-location-arrow mr-2"></i>Tất cả</a>
+
+    <% @exam_courses.each_with_index do |course, index| %>
+      <% countt = ExamSchedule.where(course_id: course.id, exam_id: @exam.id).to_a.count %>
+      <a href=<%= "#{admin_exam_schedule_index_path(@exam)}?courseID=#{course.id}" %>><span class="float-right ml-2"><%= countt %></span><i class="ti-location-arrow mr-2"></i><%=course.name %></a>
+    <% end %>
+  </div>
+
+</div>
+
+

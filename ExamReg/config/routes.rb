@@ -34,8 +34,12 @@ Rails.application.routes.draw do
     # Course Management
     resources :course_management, controller: 'course_management', :path => "/course", only: [:index]
     resources :room_management, controller: 'room_management', :path => "/room"
+
+
     resources :exam_management, controller: 'exam_management', :path => "/exam", as: :exam, only:[:index, :new, :edit, :update, :create, :destroy] do
-      resources :schedule_management, controller: 'schedule_management', :path => "/schedule", only: [:index, :create], as: :schedule
+      resources :schedule_management, controller: 'schedule_management', :path => "/schedule", only: [:index, :create, :show], as: :schedule
+
+
     end
 
     scope path: 'api', as: 'api' do

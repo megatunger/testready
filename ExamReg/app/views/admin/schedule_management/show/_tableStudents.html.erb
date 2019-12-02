@@ -1,0 +1,41 @@
+<div class="mt-5">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+      <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+        <thead>
+        <tr>
+          <th>STT</th>
+          <th>SBD</th>
+          <th>MSSV</th>
+          <th>Họ và tên</th>
+          <th>Ngày sinh</th>
+          <th>Lớp</th>
+          <th>Số tờ</th>
+          <th>Chữ ký</th>
+          <th>Ghi chú</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @regist_schedule.registrations.each_with_index do |reg, index| %>
+          <% student = Student.find(reg.student_id) %>
+          <tr>
+            <td><%= index+1 %></td>
+            <td></td>
+            <td><%=student.studentID %></td>
+            <td><%=student.lastName + " " %>  <%=student.firstName %></td>
+            <td><%=student.birthday %></td>
+            <td><%=student.classID %></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        <% end %>
+
+        </tbody>
+      </table>
+      <h7> Tổng số sinh viên: <%= @regist_schedule.registrations.count %> </h7>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>
