@@ -38,7 +38,7 @@ Rails.application.routes.draw do
 
     resources :exam_management, controller: 'exam_management', :path => "/exam", as: :exam, only:[:index, :new, :edit, :update, :create, :destroy] do
       resources :schedule_management, controller: 'schedule_management', :path => "/schedule", only: [:index, :create, :show, :new], as: :schedule
-        get '/newCourse', :to =>'schedule_management#newCourse', as: :new_course
+        get '/addCourse', :to =>'schedule_management#addCourse', as: :new_course
         post '/saveCourse', :to => 'schedule_management#saveCourse'
     end
 
