@@ -28,8 +28,9 @@ module Admin
     end
 
     def destroy
-      @exam.destroy(@exam.id)
+      @exams.destroy(@exam.id)
       @exams.reload
+      render json: {status: 'success'}, status: 200
     end
 
     private

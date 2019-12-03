@@ -9,4 +9,9 @@ class ExamSchedule < ApplicationRecord
     {:start => DateTime.new(self.date.year, self.date.month, self.date.day, self.start.hour, self.start.min),
      :end => DateTime.new(self.date.year, self.date.month, self.date.day, self.finish.hour, self.finish.min)}
   end
+
+  def time_full_string
+    time = self.time_combine
+    "#{self.date.strftime("%d/%m/%Y")} - (#{time[:start].strftime("%H:%M")} - #{time[:end].strftime("%H:%M")})"
+  end
 end

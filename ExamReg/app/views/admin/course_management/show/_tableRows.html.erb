@@ -1,0 +1,24 @@
+<% @course.students.each_with_index do |student, index| %>
+  <% registration = @registrations.select {|registration| student.id == registration.student_id}.first %>
+  <tr>
+    <th scope="row"><%=index+1%></th>
+    <td>
+      <%=student.full_name%>
+    </td>
+    <% if registration.nil? %>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    <% else %>
+      <td>
+        <%= registration.exam_schedule&.time_full_string %>
+      </td>
+      <td>
+        <%= registration.exam_schedule&.room&.name%>
+      </td>
+      <td>
+        <%= registration.updated_at%>
+      </td>
+    <% end %>
+  </tr>
+<% end %>

@@ -1,4 +1,4 @@
 class ExamCourse < ApplicationRecord
-  has_one :course
-  has_one :exam
+  belongs_to :course, class_name: 'Course', foreign_key: "course_id"
+  belongs_to :exam, class_name: 'Exam', foreign_key: "exam_id"
 end
