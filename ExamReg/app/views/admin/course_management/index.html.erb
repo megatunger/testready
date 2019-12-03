@@ -1,0 +1,13 @@
+<%= render partial: 'admin/course_management/include' %>
+
+<div class="row">
+  <div class="col-12">
+
+    <%= link_to "Tạo khoá học mới", new_admin_course_path, class: 'btn btn-outline-primary btn-lg btn-block waves-effect waves-light mb-4', data: { modal: true } %>
+    <div class="card-columns">
+      <% @courses.each do |course| %>
+        <%= render partial: 'admin/course_management/index/courseCard', :locals => {course: course} %>
+      <% end %>
+    </div>
+  </div>
+</div>

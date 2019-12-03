@@ -90,11 +90,10 @@ def createRootAccount
 
   Room.create(name:"208-G2",slot: 20)
   Room.create(name:"209-G2",slot: 40)
-  Exam.create(name: "Cuối kỳ")
-  Exam.create(name: "Giữa kỳ")
-  ExamCourse.create(course_id: 1, exam_id:1);
-  ExamCourse.create(course_id: 2, exam_id:1);
-  ExamCourse.create(course_id: 6, exam_id:1);
+  e1 = Exam.create(name: "Giữa kỳ")
+  e2 = Exam.create(name: "Cuối kỳ")
+
+  e1.courses << Course.find(1) << Course.find(2) << Course.find(6)
   
   ExamSchedule.create(course_id: 1, exam_id: 1, date: Date.today, start: "07:00:00", finish: "09:00:00", duration: "2:00:00", room_id: 1 )
   ExamSchedule.create(course_id: 1, exam_id: 1, date: Date.today, start: "07:00:00", finish: "09:00:00", duration: "2:00:00", room_id: 1)

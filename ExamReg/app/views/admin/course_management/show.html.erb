@@ -1,0 +1,13 @@
+<div class="modal-header">
+  <h5 class="modal-title mt-0" id="myLargeModalLabel">Danh sách đăng kí của kì thi gần nhất - <%=@lastest_exam_of_course&.name%></h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <%= render partial: 'admin/course_management/show/tableRegistrations' %>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+</div>
