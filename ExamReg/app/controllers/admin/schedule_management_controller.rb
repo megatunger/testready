@@ -2,7 +2,7 @@ require 'delayed_job_active_record'
 module Admin
   class ScheduleManagementController < ExamManagementController
     append_before_action :set_instance_exam, :set_instance_schedule
-    append_before_action :set_instance_course, only: [:index]
+    append_before_action :set_instance_course, only: [:index, :newCourse]
 
     def index
 
@@ -38,8 +38,15 @@ module Admin
       render plain: params.inspect
     end
     def newCourse
-      @course = @course.new
+      @listCourseAvail = @courses - @exam_courses
+      @course = @courses.new
       respond_modal_with @course
+    end
+    def saveCourse
+      render plain: params.inspect
+      # courseSaved = @courses.find(params[:course][:course_id].to_i)
+
+      # respond_modal_with @room, location: admin_room_management_index_path
     end
     private
     def set_instance_exam

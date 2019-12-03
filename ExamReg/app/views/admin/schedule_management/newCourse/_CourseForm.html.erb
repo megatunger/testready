@@ -1,0 +1,7 @@
+
+<div class="form-group row">
+  <%= f.label :course_id, 'Môn thi', :class => 'col-sm-2 col-form-label' %>
+  <div class="col-sm-10">
+    <%= f.collection_select :courseID, @listCourseAvail,:id,:name,{}, {class: 'form-control'} %>
+  </div>
+</div>
