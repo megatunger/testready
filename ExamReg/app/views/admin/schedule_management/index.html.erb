@@ -1,10 +1,10 @@
 <%= render partial: 'admin/schedule_management/index/include' %>
 
     <div class="row">
-      <div class="col-12">
-        <!-- Left sidebar -->
-        <%= render partial:  'admin/schedule_management/index/tableCourses'%>
-        <%= render partial: 'admin/schedule_management/index/tableSchedules' %>
-        <!-- End Left sidebar -->
+      <div class="col-3">
+        <%= render partial:  'admin/schedule_management/index/leftSidebar'%>
+      </div>
+      <div class="col-9">
+        <%= render partial: 'admin/schedule_management/index/rightSidebar' %>
       </div>
     </div>

@@ -1,0 +1,79 @@
+
+        <!-- Right Sidebar -->
+        <div class="card ml-4">
+          <div class="row p-3">
+            <div class="col-lg-4">
+              <form role="search" class="email-inbox">
+                <div class="form-group mb-0">
+                  <input type="text" class="form-control rounded" placeholder="Tìm kiếm ca thi...">
+                  <button type="submit"><i class="fa fa-search"></i></button>
+                </div>
+              </form>
+            </div>
+            <div class="col-lg-8">
+              <div class="btn-toolbar float-lg-right" role="toolbar">
+                <div class="btn-group mo-mb-2">
+                  <button type="button" class="btn btn-primary waves-light waves-effect"><i class = 'mdi mdi-pencil-plus-outline'></i>  Thêm ca thi</button>
+                  <button type="button" class="btn btn-danger waves-light waves-effect ml-4"><i class="far fa-trash-alt mr-1"></i>  Xoá ca thi đã chọn</button>
+                </div>
+
+              </div>
+            </div>
+
+
+
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+
+              <tbody>
+              <!-- foreach ($order->lineItems as $line) or some such thing here -->
+              <% @exam_schedules.sort_by { |d| d[:date] }.each_with_index do |schedule, index| %>
+                <% course = Course.find(schedule.course_id) %>
+                <% room = Room.find(schedule.room_id) %>
+                <% regist = schedule.registrations %>
+                <tr class = "pt-0">
+                  <td type="width: 10%">
+                    <div class="checkbox-wrapper-mail">
+                      <input type="checkbox" id="chk1">
+                      <label for="chk1" class="toggle"></label>
+                    </div>
+                  </td>
+                  <td>
+                        <h6 class=""><%= course.name %> </h6>
+                        <h7 class="text-muted"><%= course.courseID %></h7>
+                  </td>
+                  <td class="">
+                    <a href="#">
+                      <h6 class="mb-0"> <%= schedule.date.strftime "%d/%m/%Y" %> </h6>
+                      <p class="text-muted mt-1 mb-0"><%= schedule.start.strftime "%H:%M" %> - <%= schedule.finish.strftime "%H:%M" %> </p>
+                    </a>
+                  </td>
+                  <td class="">
+                    <h6> <%=room.name %></h6>
+                    <p class="text-muted mt-1 mb-0"><%= regist.count %>/<%= room.slot %> </p>
+                  </td>
+                  <td class="text-right">
+                    <a href="<%=admin_exam_schedule_path(@exam,schedule) %>" class="btn btn-primary rounded btn-custom btn-block waves-effect waves-light">Xem danh sach</a>
+
+                  </td>
+                </tr>
+              <%end %>
+
+
+              </tbody>
+            </table>
+          </div>
+
+
+        </div>
+        </div>
+
+        </div>
+        </div> <!-- end row -->
+
+        </div>
+        </div>
+        </div> <!-- end col -->
+        </div> <!-- end row -->
+
