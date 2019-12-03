@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     end
 
     # Course Management
-    resources :course_management, controller: 'course_management', :path => "/course", only: [:index]
+    resources :course_management, controller: 'course_management', :path => "/course", as: :course
     resources :room_management, controller: 'room_management', :path => "/room"
 
 

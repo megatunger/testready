@@ -1,0 +1,19 @@
+<%= simple_form_for(@course, :url => admin_course_index_path , remote: request.xhr?, html: { data: { modal: true }, id: 'form_new_course' }) do |f| %>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0" id="myLargeModalLabel">
+      <%= "Thêm khoá học mới" %>
+    </h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <%= render 'admin/course_management/new/CourseForm', f: f %>
+  </div>
+
+  <div class="modal-footer">
+    <%= f.button :submit, "Lưu", class: 'btn btn-primary' %>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+  </div>
+<% end %>

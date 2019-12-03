@@ -2,11 +2,19 @@
 
 <% content_for :css_includes do %>
 
+  <!-- Sweet Alert -->
+  <%= stylesheet_link_tag "sweet-alert2/sweetalert2.css" %>
+
 <% end %>
 
 <% content_for :javascript_includes do %>
 
+  <!-- Sweet-Alert  -->
+  <%= javascript_include_tag "sweet-alert2/sweetalert2.min.js" %>
+  <%= javascript_include_tag "pages/admin/exam_management/popup-modal.js" %>
+
+
   <!-- Alertify js -->
-  <%= javascript_include_tag "alertify/js/alertify.js", 'data-turbolinks-track': 'reload'%>
-  <%= javascript_include_tag "pages/admin/exam_management/alert.js" %>
+  <%= javascript_include_tag "alertify/js/alertify.js"%>
+  <%= javascript_include_tag "pages/admin/student_management/alert.js" %>
 <% end %>
