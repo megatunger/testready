@@ -1,0 +1,7 @@
+<% if @exam_schedule.valid? %>
+$('#mainModal').modal('hide').on('hidden.bs.modal', function (e) {
+    location.reload();
+});
+<% else %>
+$('#form_new_exam_schedule').html('<%=j render template: 'admin/schedule_management/new' %>')
+<% end %>

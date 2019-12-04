@@ -5,6 +5,8 @@ ruby '~> 2.6.x'
 
 gem 'jquery-rails'
 gem 'bootstrap'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 # Response website as many format
 #

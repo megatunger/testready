@@ -1,0 +1,30 @@
+<div class="form-group row">
+  <div class="col-sm-12">
+    <%= f.association :exam, label: 'Kì thi', error: 'Vui lòng chọn kì thi', class: 'form-control' %>
+  </div>
+</div>
+<div class="form-group row">
+  <div class="col-sm-12">
+    <%= f.association :course, label: 'Môn thi', error: 'Vui lòng chọn môn thi', class: 'form-control' %>
+  </div>
+</div>
+<div class="form-group row">
+  <div class="col-sm-12">
+    <%= f.association :room, label: "Phòng thi", class: 'form-control' %>
+  </div>
+</div>
+<div class="form-group row">
+  <div class="col-sm-12">
+    <%= f.input :date, label: "Ngày thi", as: :date, class: 'form-control'%>
+  </div>
+</div>
+<div class="form-group row">
+  <div class="col-sm-12">
+    <%= f.input :start, label: "Giờ bắt đầu", as: :time, :minute_step => 15, class: 'form-control'%>
+  </div>
+</div>
+<div class="form-group row">
+  <div class="col-sm-12">
+    <%= f.input :finish, label: "Giờ kết thúc", as: :time, :minute_step => 15, class: 'form-control'%>
+  </div>
+</div>

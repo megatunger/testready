@@ -3,7 +3,7 @@ class Course < ApplicationRecord
   has_many :students, through: :course_students
 
   has_many :exam_schedules
-  has_many :exams, through: :exam_schedules
+  has_many :exams, through: :exam_schedules, dependent: :destroy
 
   validates :courseID, :name, :credit, presence: true
   validates :courseID, uniqueness: true

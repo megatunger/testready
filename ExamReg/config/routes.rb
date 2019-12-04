@@ -37,9 +37,12 @@ Rails.application.routes.draw do
 
 
     resources :exam_management, controller: 'exam_management', :path => "/exam", as: :exam, only:[:index, :new, :edit, :update, :create, :destroy] do
-      resources :schedule_management, controller: 'schedule_management', :path => "/schedule", only: [:index, :create, :show, :new], as: :schedule
-        get '/addCourse', :to =>'schedule_management#addCourse', as: :new_course
-        post '/saveCourse', :to => 'schedule_management#saveCourse'
+      get '/add_course', :to =>'exam_management#add_course', as: :new_course
+      patch '/saveCourse', :to => 'exam_management#save_course'
+      delete '/deleteSelected', :to => 'exam_management#delete_selected', on: :collection
+      resources :schedule_management, controller: 'schedule_management', :path => "/schedule", only: [:index, :create, :show, :new, :edit, :update], as: :schedule do
+        get '/exportPDF', :to => 'schedule_management#export_pdf', :format => "pdf", as: :export_pdf
+      end
     end
 
     scope path: 'api', as: 'api' do

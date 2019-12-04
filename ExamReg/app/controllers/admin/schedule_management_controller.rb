@@ -1,67 +1,89 @@
 require 'delayed_job_active_record'
 module Admin
   class ScheduleManagementController < ExamManagementController
-    append_before_action :set_instance_exam, :set_instance_schedule
-    append_before_action :set_instance_course, only: [:index, :addCourse]
+    append_before_action :set_instance_exam
+    append_before_action :set_instance_schedule, only: [:show, :edit, :update]
+    append_before_action :set_instance_new_exam_schedule, only: [:new, :create]
+    respond_to :html, :json, :js, :pdf
 
     def index
-
-      if (params[:courseID] == nil)
-        @exam_schedules = ExamSchedule.where(exam_id: @exam.id).to_a
-      else
-        @exam_schedules = ExamSchedule.where(course_id: params[:courseID].to_i, exam_id: @exam.id).to_a
+      if params[:course] != nil
+        @course = @courses.find(params[:course].to_i)
+        @exam_schedules = @exam_schedules.where(course_id: params.require(:course))
       end
-      respond_to do |format|
-        format.html { render :template => "admin/schedule_management/index.html.erb" }
-        format.json { render 'admin/schedule_management/index/index.json.jbuilder'}
-      end
-
     end
 
     def show
-      @regist_schedule = ExamSchedule.find(params[:id])
-      @course = Course.find(@regist_schedule.course_id)
-      @room = Room.find(@regist_schedule.room_id)
+      respond_modal_with @exam_schedule
+    end
+
+    def export_pdf
+      @exam_schedule = @exam.exam_schedules.find(params[:schedule_id])
+      @course = @exam_schedule.course
+      @room = @exam_schedule.room
       respond_to do |format|
-        format.html { render :template => "admin/schedule_management/show.html.erb" }
+        format.pdf do
+          render pdf: "Export",
+                 template: "admin/schedule_management/show/print.html.erb",
+                 layout: 'pdf.html.erb', show_as_html: params.key?("debug"),
+                 dpi: 100
+        end
       end
+    end
+
+    def new
+      respond_modal_with @exam_schedule
     end
 
     def create
-      # @exam_schedule = @exam_schedules.new(exam_schedule_params)
-      # if @exam_schedule.valid?
-      #   @exam_schedule.save
-      #   puts "SAVED!!!"
-      # else
-      # end
-      # puts @exam_schedule.course_id.name;
-      render plain: params.inspect
+      params[:exam_schedule][:room].each do |room_id|
+        if room_id.to_i != 0
+          room = @rooms.find(room_id.to_i)
+          @exam_schedule = ExamSchedule.new(exam_schedule_params)
+          @exam_schedule.room_id = room.id
+          @exam_schedule.save
+        end
+      end
+      respond_modal_with @exam_schedule, location: admin_exam_schedule_index_path
     end
-    def addCourse
-      @listCourseAvail = @courses - @exam_courses
-      @course = @courses.new
-      respond_modal_with @course
-    end
-    def saveCourse
-      render plain: params.inspect
-      # courseSaved = @courses.find(params[:course][:course_id].to_i)
 
-      # respond_modal_with @room, location: admin_room_management_index_path
+    def edit
+      respond_modal_with @exam_schedule
     end
+
+    def update
+      @exam_schedule.update(exam_schedule_params_update)
+      respond_modal_with @exam_schedule, location: admin_exam_schedule_index_path
+    end
+
+    def delete_selected
+
+    end
+
     private
     def set_instance_exam
       @exam = @exams.find(params.require(:exam_id))
+      @exam_schedules = @exam.exam_schedules
+      @exam_courses = @exam.courses
+      @rooms = Room.all
     end
 
     def set_instance_schedule
-      @exam_schedules = @exam.exam_schedules
+      @exam_schedule = @exam.exam_schedules.find(params[:id])
+      @course = @exam_schedule.course
+      @room = @exam_schedule.room
     end
 
-    def set_instance_course
-      @exam_courses = Array.new
-      @exam.exam_courses.each do |ec|
-        @exam_courses << @courses.find(ec.course_id)
-      end
+    def exam_schedule_params
+      params.require(:exam_schedule).permit(:exam_id, :course_id, :date, :start, :finish)
+    end
+
+    def exam_schedule_params_update
+      params.require(:exam_schedule).permit(:exam_id, :room_id, :course_id, :date, :start, :finish)
+    end
+    def set_instance_new_exam_schedule
+      @exam_schedule = ExamSchedule.new
+      @exam_schedule.exam_id = @exam.id
     end
   end
 end

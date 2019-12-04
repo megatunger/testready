@@ -1,13 +1,13 @@
-<%= simple_form_for(@exam, :url => admin_exam_saveCourse_path, remote: request.xhr?, html: { data: { modal: true }, id: 'form_new_course' }) do |f| %>
+<%= simple_form_for(@exam_schedule, :url => admin_exam_schedule_index_path, remote: request.xhr?, html: { data: { modal: true }, id: 'form_new_exam_schedule' }) do |f| %>
   <div class="modal-header">
-    <h5 class="modal-title mt-0" id="myLargeModalLabel">Thêm môn thi mới</h5>
+    <h5 class="modal-title mt-0" id="myLargeModalLabel">Thêm lịch thi mới</h5>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
 
   <div class="modal-body">
-    <%= render 'admin/schedule_management/addCourse/CourseForm', f: f %>
+    <%= render 'admin/schedule_management/new/ExamScheduleForm', f: f %>
   </div>
 
   <div class="modal-footer">

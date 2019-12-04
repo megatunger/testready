@@ -9,8 +9,8 @@
   </div>
   <div class="col-4 float-right" >
     <address>
-      <strong>Ngày thi:</strong> <%= @regist_schedule.date.strftime "%d/%m/%Y" %><br>
-      <strong>Giờ thi:</strong> <%= @regist_schedule.start.strftime "%H:%M" %> - <%= @regist_schedule.finish.strftime "%H:%M" %><br>
+      <strong>Ngày thi:</strong> <%= @exam_schedule.date.strftime "%d/%m/%Y" %><br>
+      <strong>Giờ thi:</strong> <%= @exam_schedule.start.strftime "%H:%M" %> - <%= @exam_schedule.finish.strftime "%H:%M" %><br>
       <strong>Phòng thi:</strong> <%=@room.name %>
     </address>
   </div>
