@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-2"></div>
+  <div class="col-5 m-t-30">
+    <address>
+      <strong>Họ và tên: </strong><%= @student.lastName + ' ' + @student.firstName%><br>
+      <strong>Chương trình đào tạo: </strong><%= @student.major + ' - ' + @student.faculty %><br>
+      <strong>Ngày sinh: </strong><%= @student.birthday.strftime "%d/%m/%Y"%><br>
+    </address>
+  </div>
+  <div class="col-5 m-t-30">
+    <address>
+      <strong>MSSV: </strong><%= @student.studentID%><br>
+      <strong>Lớp khoá học: </strong><%= @student.classID%><br>
+      <strong>Giới tính: </strong><%= checkSex() %>
+    </address>
+  </div>
+</div>

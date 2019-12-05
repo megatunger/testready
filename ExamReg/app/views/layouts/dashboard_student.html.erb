@@ -18,8 +18,30 @@
 </head>
 
 <body>
+
 <%= render partial: 'layouts/shared/headerStudent' %>
-<%= yield %>
+<div class="wrapper">
+  <div class="container-fluid">
+    <!-- Page-Title -->
+    <div class="page-title-box">
+      <div class="row align-items-center">
+        <div class="col-sm-6">
+          <h4 class="page-title"><%= content_for(:html_title) %></h4>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-right">
+            <li class="breadcrumb-item"><a href=<%=root_path%>>TestReady</a></li>
+            <li class="breadcrumb-item active"><%= content_for(:html_title) %></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div id="primary-content">
+      <%= yield %>
+    </div>
+  </div>
+</div>
+<%#= yield %>
 <%= render partial: 'layouts/shared/footer' %>
 </body>
 

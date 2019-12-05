@@ -47,11 +47,10 @@ Rails.application.routes.draw do
     end
   end
 
-  scope 'student', module: :student_controllers do
+  scope 'student', module: :student_controllers, as: :student do
     # root to: 'student_info#index'
-    resources :student_info_management, controller: "student_info_management", :path => "/student_info", only: [:index, :creat] do
-    end
-    resources :dashboard_student, controller: "dashboard_student", :path => "/dashboard", only: [:index]
+    get '/', :to => "dashboard_student#index"
+    get '/registration', :to => 'dashboard_student#newRegistration'
     get '/print-schedule', :to => 'schedule_print#index'
   end
 

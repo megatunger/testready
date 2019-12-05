@@ -10,6 +10,11 @@ module StudentControllers
         format.json { render 'dashboard_student/index/index.json.jbuilder'}
       end
     end
+    def newRegistration
+      respond_to do |format|
+        format.html { render :template => "dashboard_student/registration.html.erb" }
+        end
+    end
     private
     def checkRole
       redirect_to error_permission_path unless current_user.role == "student"
@@ -19,5 +24,8 @@ module StudentControllers
       @registrations = Registration.all
       @courseStudents = CourseStudent.all
     end
+    # def course_instance_param
+    #   @studentCourse = @student.courses.find(params.require(:id))
+    # end
   end
 end
