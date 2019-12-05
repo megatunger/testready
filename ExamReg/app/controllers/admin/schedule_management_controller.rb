@@ -1,4 +1,3 @@
-require 'delayed_job_active_record'
 module Admin
   class ScheduleManagementController < ExamManagementController
     append_before_action :set_instance_exam
@@ -56,8 +55,18 @@ module Admin
       respond_modal_with @exam_schedule, location: admin_exam_schedule_index_path
     end
 
-    def delete_selected
+    def delete
+      @exam_schedule = @exam.exam_schedules.find(params[:schedule_id])
+      @course = @exam_schedule.course
+      @room = @exam_schedule.room
+      respond_modal_with @exam_schedule
+    end
 
+    def destroy
+      @exam_schedule = @exam.exam_schedules.find(params[:id])
+      @course = @exam_schedule.course
+      @room = @exam_schedule.room
+      @exam_schedules.destroy(@exam_schedule)
     end
 
     private
@@ -81,6 +90,7 @@ module Admin
     def exam_schedule_params_update
       params.require(:exam_schedule).permit(:exam_id, :room_id, :course_id, :date, :start, :finish)
     end
+
     def set_instance_new_exam_schedule
       @exam_schedule = ExamSchedule.new
       @exam_schedule.exam_id = @exam.id

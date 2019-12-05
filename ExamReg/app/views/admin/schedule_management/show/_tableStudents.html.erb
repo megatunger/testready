@@ -19,7 +19,7 @@
           <% student = Student.find(reg.student_id) %>
           <tr>
             <td><%= index+1 %></td>
-            <td></td>
+            <td><%=reg.SBD %></td>
             <td><%=student.studentID %></td>
             <td><%=student.lastName + " " %>  <%=student.firstName %></td>
             <td><%=student.birthday %></td>

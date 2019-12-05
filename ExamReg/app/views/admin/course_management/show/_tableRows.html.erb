@@ -1,14 +1,16 @@
 <% @course.students.each_with_index do |student, index| %>
   <% registration = @registrations.select {|registration| student.id == registration.student_id}.first %>
-  <tr>
+  <tr class="<%=check_banned_class(student)%>">
     <th scope="row"><%=index+1%></th>
     <td>
       <%=student.full_name%>
     </td>
     <% if registration.nil? %>
-      <td>N/A</td>
-      <td>N/A</td>
-      <td>N/A</td>
+      <% (1..3).each do %>
+        <td>
+          <%=check_banned(student)?"Cấm thi":"Chưa đăng kí"%>
+        </td>
+      <% end %>
     <% else %>
       <td>
         <%= registration.exam_schedule&.time_full_string %>
@@ -17,7 +19,7 @@
         <%= registration.exam_schedule&.room&.name%>
       </td>
       <td>
-        <%= registration.updated_at%>
+        <%= registration.updated_at.localtime%>
       </td>
     <% end %>
   </tr>

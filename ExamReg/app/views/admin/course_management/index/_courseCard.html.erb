@@ -12,13 +12,16 @@
       </h5>
       <h7 class="mt-4">
         Số tín chỉ: <%= course.credit %>
+
+
       </h7>
     </div>
 
     <div class="progress mt-4" style="height: 4px;">
-      <div class="progress-bar bg-success" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+      <% course_percents = registrations_percent(course) %>
+      <div class="progress-bar bg-success" role="progressbar" style="width: <%=course_percents%>%" aria-valuenow=<%=course_percents%> aria-valuemin="0" aria-valuemax="100"></div>
     </div>
-    <p class="text-muted mt-2 mb-0">Tỉ lệ hoàn thành đăng kí<span class="float-right">75%</span></p>
+    <p class="text-muted mt-2 mb-0">Tỉ lệ hoàn thành đăng kí kì thi gần nhất<span class="float-right"><%=course_percents%>%</span></p>
 
     <div class="mt-4">
       <%= link_to "Xem danh sách đăng kí của kì thi gần nhất", admin_course_path(course), class: 'btn btn-block btn-lg btn-primary waves-effect waves-light mr-2 mt-2', data: { modal: true } %>

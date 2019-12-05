@@ -1,0 +1,17 @@
+<%= simple_form_for(@exam_schedule, :url => admin_exam_schedule_path(@exam, @exam_schedule), method: :delete, remote: request.xhr?, html: { data: { modal: true }, id: 'form_delete_exam_schedule' }) do |f| %>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0" id="myLargeModalLabel">Xoá lịch thi: <%="#{@course.course_full_name} - #{@exam_schedule.time_full_string}"%></h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <h6>Bạn có chắc chắn muốn xoá? Thao tác này không thể hoàn tác.</h6>
+  </div>
+
+  <div class="modal-footer">
+    <%= f.button :submit, "Xoá", class: 'btn btn-danger' %>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+  </div>
+<% end %>

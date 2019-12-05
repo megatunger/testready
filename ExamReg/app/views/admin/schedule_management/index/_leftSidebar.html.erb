@@ -2,10 +2,16 @@
 <div class="email-leftbar card" style="width: 300px">
   <%= link_to "Thêm/Xoá môn thi", admin_exam_new_course_path, class: 'btn btn-primary rounded btn-custom btn-block waves-effect waves-light', data: { modal: true } %>
 
+  <% if @exam.closed %>
+    <button class="btn btn-success rounded btn-custom btn-block text-uppercase">Đã đóng đăng kí</button>
+  <% else %>
+    <%= link_to "Đóng thời gian đăng kí", admin_exam_closed_prompt_path(@exam), class: 'btn btn-warning rounded btn-custom btn-block waves-effect waves-light', data: { modal: true } %>
+  <% end %>
+
   <h6 class="m-t-30">Môn thi hiện tại</h6>
   <div class="mail-list m-t-10">
     <a class="<%=active_course_index_path%>" href="<%=admin_exam_schedule_index_path(@exam)%>">
-      <span class="float-right"><%= @exam.exam_schedules.count %></span>
+      <span class="float-right"><%= @exam.exam_schedules.count %> ca</span>
       <i class="ti-location-arrow mr-2"></i>
       Tất cả
     </a>

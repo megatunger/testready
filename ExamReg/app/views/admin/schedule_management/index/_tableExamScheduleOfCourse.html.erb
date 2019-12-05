@@ -8,10 +8,10 @@
       <tr class="pt-0">
         <td type="width: 10%">
           <div class="checkbox-wrapper-mail">
-            <input type="checkbox" id="id[]" class="chk" value=<%=schedule.id%>>
+            <i class="mdi mdi-square-inc"></i>
           </div>
         </td>
-        <td>
+        <td style="width: 40%">
           <h6 class=""><%= course.name %> </h6>
           <h7 class="text-muted"><%= course.courseID %></h7>
         </td>
@@ -26,9 +26,10 @@
           <h6> <%= room.name %></h6>
           <p class="text-muted mt-1 mb-0"><%= registrations.count %>/<%= room.slot %> </p>
         </td>
-        <td class="text-right">
+        <td class="text-right" style="width: 20%">
           <%= link_to "Xem danh sách", admin_exam_schedule_path(@exam, schedule), class: 'btn btn-primary rounded btn-custom btn-block waves-effect waves-light', data: { modal: true } %>
           <%= link_to "Sửa thông tin", edit_admin_exam_schedule_path(@exam, schedule), class: 'btn btn-outline-warning rounded btn-custom btn-block waves-effect waves-light', data: { modal: true } %>
+          <%= link_to "Xoá ca thi", admin_exam_schedule_delete_path(@exam, schedule), class: 'btn btn-outline-danger rounded btn-custom btn-block waves-effect waves-light', data: { modal: true } %>
         </td>
       </tr>
     <% end %>

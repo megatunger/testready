@@ -2,20 +2,11 @@
 <div class="card ml-4">
   <div class="row p-3">
     <div class="col-lg-4">
-      <form role="search" class="email-inbox">
-        <div class="form-group mb-0">
-          <input type="text" class="form-control rounded" placeholder="Tìm kiếm ca thi...">
-          <button type="submit"><i class="fa fa-search"></i></button>
-        </div>
-      </form>
     </div>
     <div class="col-lg-8">
       <div class="btn-toolbar float-lg-right" role="toolbar">
         <div class="btn-group mo-mb-2">
           <%= link_to "<i class = 'mdi mdi-pencil-plus-outline'></i> Thêm ca thi ".html_safe, new_admin_exam_schedule_path(@exam), class: 'btn btn-primary waves-light waves-effect', data: { modal: true } %>
-          <button type="button" class="btn btn-danger waves-light waves-effect ml-4">
-            <i class="far fa-trash-alt mr-1"></i> Xoá ca thi đã chọn
-          </button>
         </div>
 
       </div>

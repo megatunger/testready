@@ -6,6 +6,7 @@ class ExamSchedule < ApplicationRecord
   has_many :students
 
   validates :date, :start, :finish, :presence => true
+
   def time_combine
     {:start => DateTime.new(self.date.year, self.date.month, self.date.day, self.start.hour, self.start.min),
      :end => DateTime.new(self.date.year, self.date.month, self.date.day, self.finish.hour, self.finish.min)}
@@ -15,4 +16,5 @@ class ExamSchedule < ApplicationRecord
     time = self.time_combine
     "#{self.date.strftime("%d/%m/%Y")} - (#{time[:start].strftime("%H:%M")} - #{time[:end].strftime("%H:%M")})"
   end
+
 end

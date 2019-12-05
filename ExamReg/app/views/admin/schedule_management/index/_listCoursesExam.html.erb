@@ -1,6 +1,6 @@
 <% @exam_courses.each_with_index do |course, index| %>
   <a class="<%=active_course_path(course)%>" href=<%="#{admin_exam_schedule_index_path(@exam)}?course=#{course.id}"%>>
-    <span class="float-right ml-2"><%= @exam.exam_schedules.where(course_id: course.id).count%></span>
+    <span class="float-right ml-2"><%= @exam.exam_schedules.where(course_id: course.id).count%> ca</span>
     <i class="ti-location-arrow mr-2"></i>
     <%= course.name %>
   </a>

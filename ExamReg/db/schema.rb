@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2019_10_31_095822) do
 
   create_table "exams", force: :cascade do |t|
     t.string "name"
+    t.boolean "closed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -81,6 +82,7 @@ ActiveRecord::Schema.define(version: 2019_10_31_095822) do
   create_table "registrations", force: :cascade do |t|
     t.integer "student_id"
     t.integer "exam_schedule_id"
+    t.integer "SBD"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["exam_schedule_id"], name: "index_registrations_on_exam_schedule_id"
