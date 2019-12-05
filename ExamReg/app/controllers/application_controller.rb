@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     end
   end
   def set_constant
-    @App_Name = "TestReady"
+    @App_Name = "ABC University"
   end
 
 end
