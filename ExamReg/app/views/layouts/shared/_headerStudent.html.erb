@@ -35,8 +35,6 @@
                   <a class="dropdown-item">
                     Chào bạn, <br><%=current_user.email.truncate(15)%>
                   </a>
-                  <!--                  <a class="dropdown-item" data-toggle="modal" data-target=".bs-example-modal-lg" href=<%#= student_info_management_index_path%>><i class="mdi mdi-account-circle"></i>Cập nhật tài khoản </a>-->
-                  <a class="dropdown-item" data-toggle="modal" data-target=".bs-example-modal-lg" href="#"><i class="mdi mdi-account-circle"></i>Cập nhật tài khoản </a>
 
                   <div class="dropdown-divider"></div>
                   <%= button_to "Đăng xuất", sign_out_path, method: :delete, class: 'dropdown-item text-danger' %>
@@ -44,7 +42,6 @@
               </div>
             </li>
 
-<%= render partial: 'layouts/shared/headerStudent-studentInfo' %>
             <li class="menu-item dropdown notification-list list-inline-item">
               <!-- Mobile menu toggle-->
               <a class="navbar-toggle nav-link">
