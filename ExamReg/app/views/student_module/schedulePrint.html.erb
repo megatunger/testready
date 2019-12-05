@@ -1,31 +1,20 @@
 <% content_for(:html_title) { 'In lịch thi' } %>
 <div class="row">
-      <div class="col-12">
-        <div class="card m-b-30">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-12">
-                <div class="invoice-title">
-                  <h3 class="m-t-0">
-                    <%= @App_Name %>
-                  </h3>
-                </div>
-                <hr>
-                <%= render partial: "admin/schedule_management/show/paperHeader" %>
-                <div class="row mt-4" style="font-size: 16px;">
-                  <div class="col-12" style="width: 40%; text-align: center; vertical-align: top; text-transform: uppercase">
-                    <address>
-                      <strong>DANH SÁCH ĐĂNG KÝ THI</strong><br>
-                    </address>
-                  </div>
-                </div>
-                <%= render partial: "dashboard_student/index/studentInformation" %>
+  <div class="col-12">
+    <div class="card m-b-30">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12">
+            <%= render partial: 'student_module/print' %>
+
+            <div class="d-print-none mo-mt-2">
+              <div class="float-right">
+                <%= link_to "<i class='fa fa-print'></i> Tạo PDF & In".html_safe, student_export_pdf_path(:format => :pdf), class: 'btn btn-success waves-effect waves-light', target: :_blank %>
               </div>
             </div>
-
-            <%= render partial: "dashboard_student/index/tableStudentSchedule" %>
-
           </div>
         </div>
-      </div> <!-- end col -->
-    </div> <!-- end row -->
+      </div>
+    </div>
+  </div> <!-- end col -->
+</div> <!-- end row -->

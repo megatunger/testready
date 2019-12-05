@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title><%= content_for?(:html_title) ? yield(:html_title) + " | TestReady" : "TestReady" %></title>
+      <title><%= content_for?(:html_title) ? yield(:html_title) + " | #{@App_Name}" : "#{@App_Name}" %></title>
       <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
 

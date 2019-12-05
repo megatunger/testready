@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= content_for?(:html_title) ? yield(:html_title) + " | TestReady" : "TestReady" %></title>
+  <title><%= content_for?(:html_title) ? yield(:html_title) + " | #{@App_Name}" : "#{@App_Name}" %></title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
@@ -33,7 +33,7 @@
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-right">
-            <li class="breadcrumb-item"><a href=<%=root_path%>>TestReady</a></li>
+            <li class="breadcrumb-item"><a href=<%=root_path%>><%=@App_Name %></a></li>
             <li class="breadcrumb-item active"><%= content_for(:html_title) %></li>
           </ol>
         </div>

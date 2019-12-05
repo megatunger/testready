@@ -22,24 +22,17 @@
                 <% course = courseSchedule(registration)  %>
                 <% exam_schedule = @exam_schedules.find(registration.exam_schedule_id)%>
                 <tr>
-                  <td class="text-center"><%= registration.id %></td>
+                  <td class="text-center"><%= registration.SBD %></td>
                   <td class="text-center"><%= course.courseID %></td>
                   <td class="text-center"><%= course.name %></td>
                   <td class="text-center"><%= exam_schedule.date.strftime "%d/%m/%Y" %></td>
                   <td class="text-center"><%= exam_schedule.start.to_s(:time) %> - <%= exam_schedule.finish.to_s(:time) %></td>
-                  <td class="text-center"><%= exam_schedule.room_id %></td>
+                  <td class="text-center"><%= exam_schedule.room.name %></td>
                 </tr>
               <% end  %>
             <% end %>
             </tbody>
           </table>
-        </div>
-
-        <div class="d-print-none mo-mt-2">
-          <div class="float-right">
-            <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light"><i class="fa fa-print"></i></a>
-            <a href="#" class="btn btn-primary waves-effect waves-light">Send</a>
-          </div>
         </div>
       </div>
     </div>

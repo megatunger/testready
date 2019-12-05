@@ -14,7 +14,7 @@ module StudentModule
 
     def new_registration
       set_instance_course
-      @exam_schedules = @exam_schedules.where(course_id: @course.id)
+      @exam_schedules = @exam_schedules.where(course_id: @course.id, exam_id: @exam.id)
       respond_modal_with @course
     end
 

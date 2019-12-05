@@ -1,5 +1,13 @@
 <% content_for(:html_title) { 'Trang chủ' } %>
 <% array = ["primary", "success", "infor", "warning", "danger"] %>
+
+<h4 class="ml-1 mt-0 header-title mb-4 text-center text-danger">
+  <% if @exam.closed %>
+    Đã hết thời hạn đăng kí kì thi: <%= @exam.name %>
+  <% else %>
+    Đang mở đăng kí kì thi: <%=@exam.name%>
+  <% end %>
+</h4>
 <%= render partial: "student_module/index/studentCourses" %>
 
 

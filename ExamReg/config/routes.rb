@@ -57,6 +57,7 @@ Rails.application.routes.draw do
     get '/registration/:courseID/', :to => 'dashboard_student#new_registration', as: :register
     post '/registration/:courseID/', :to => 'dashboard_student#save_registration', as: :save_register
     get '/print-schedule', :to => 'schedule_print#index'
+    get '/exportPDF', :to => 'schedule_print#export_pdf', :format => "pdf", as: :export_pdf
   end
 
   get 'error/permission' => 'dashboard#fallback_permission'
