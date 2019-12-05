@@ -1,4 +1,4 @@
-module StudentControllers
+module StudentModule
   class SchedulePrintController < DashboardStudentController
     append_before_action :setSchedulePrintVariables
     def index

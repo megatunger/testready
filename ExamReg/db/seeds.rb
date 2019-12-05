@@ -47,7 +47,8 @@ def parseCourse
     tenMonHoc = rows[i][1].value
     soTinChi = rows[i][2].value
     soTinChi = soTinChi
-    Course.create(courseID: maMH, name: tenMonHoc, credit: soTinChi.to_i)
+    a = Course.create(courseID: maMH, name: tenMonHoc, credit: soTinChi.to_i)
+    # byebug
   end
   puts "Course count: #{Course.count}"
 end

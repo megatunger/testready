@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-12">
     <div class="card-columns">
-      <% @student.courses.each_with_index do |course| %>
+      <% @courses.each_with_index do |course| %>
         <% color = returnColor(course)%>
         <div class="card m-b-30">
           <div class="card-body">
@@ -26,9 +26,8 @@
               <div class="progress-bar bg-<%= color %>" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
             <p class="text-muted mt-2 mb-0">Tỉ lệ hoàn thành đăng kí<span class="float-right">75%</span></p>
-            <a href= "<%= student_registration_path%>" class="btn btn-<%= color%> mt-2">
-              <%= returnText(course)%>
-            </a>
+
+            <%= link_to "#{returnText(course)}", student_register_path(course), class: "btn btn-#{color} mt-2 waves-effect", data: { modal: true } %>
           </div>
         </div>
       <% end %>

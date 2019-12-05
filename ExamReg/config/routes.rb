@@ -52,10 +52,10 @@ Rails.application.routes.draw do
     end
   end
 
-  scope 'student', module: :student_controllers, as: :student do
-    # root to: 'student_info#index'
+  namespace :student_module, as: :student, :path => "/student"  do
     get '/', :to => "dashboard_student#index"
-    get '/registration', :to => 'dashboard_student#newRegistration'
+    get '/registration/:courseID/', :to => 'dashboard_student#new_registration', as: :register
+    post '/registration/:courseID/', :to => 'dashboard_student#save_registration', as: :save_register
     get '/print-schedule', :to => 'schedule_print#index'
   end
 

@@ -1,4 +1,4 @@
-module StudentControllers
+module StudentModule
   class StudentInfoManagementController < DashboardStudentController
     before_action :checkRole
     def index

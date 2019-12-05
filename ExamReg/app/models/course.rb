@@ -8,7 +8,7 @@ class Course < ApplicationRecord
   validates :courseID, :name, :credit, presence: true
   validates :courseID, uniqueness: true
 
-  belongs_to :exam_course
+  has_one :exam_course
 
   def course_full_name
     "#{self.courseID} - #{self.name}"

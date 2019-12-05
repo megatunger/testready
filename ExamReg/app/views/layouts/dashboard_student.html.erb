@@ -7,11 +7,14 @@
 
   <%= javascript_include_tag "application.js", 'data-turbolinks-track': 'reload' %>
 
-  <link rel="shortcut icon" href="assets/images/favicon.ico">
+  <!--  Modal -->
+  <%= javascript_include_tag "modal.js", 'data-turbolinks-track': 'reload'  %>
+
   <%= stylesheet_link_tag "bootstrap.min", 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag "metismenu.min", 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag "icons", 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_link_tag "style", 'data-turbolinks-track': 'reload' %>
+
 
   <!-- CSS include per view -->
   <%= yield :css_includes %>
@@ -41,13 +44,11 @@
     </div>
   </div>
 </div>
-<%#= yield %>
 <%= render partial: 'layouts/shared/footer' %>
+<div id="modal-holder"></div>
 </body>
 
 <!-- jQuery  -->
-<%= javascript_include_tag "application.js", 'data-turbolinks-track': 'reload' %>
-<%#= javascript_include_tag "jquery.min", 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag "bootstrap.bundle.min", 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag "jquery.slimscroll", 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag "waves.min", 'data-turbolinks-track': 'reload' %>

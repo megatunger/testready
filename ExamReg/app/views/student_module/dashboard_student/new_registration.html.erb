@@ -1,0 +1,60 @@
+<%= simple_form_for(:registration, :url => student_save_register_path(@course), remote: request.xhr?, html: {data: {modal: true}, id: 'form_new_student'}) do |f| %>
+  <script>
+          $(document).ready(function(){
+          $('.form-check-input').click(function () {
+              $('.form-check-input').not(this).prop('checked', false);
+          });
+      });
+  </script>
+
+  <div class="modal-header">
+    <h5 class="modal-title mt-0" id="myLargeModalLabel">Đăng kí thi: <%= @course.course_full_name %></h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <% if @exam.closed %>
+      <h6> Xin lỗi, đã hết hạn thời hạn đăng kí.</h6>
+    <% else %>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th scope="col" class="text-center">Ca thi</th>
+            <th scope="col" class="text-center">Ngày thi</th>
+            <th scope="col" class="text-center">Giờ thi</th>
+            <th scope="col" class="text-center">Phòng thi</th>
+            <th scope="col" class="text-center">Đã đăng kí</th>
+            <th scope="col" class="text-center"></th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @exam_schedules.each_with_index do |exam_schedule, index| %>
+            <tr>
+              <td class="text-center"><%= index += 1 %></td>
+              <td class="text-center"><%= exam_schedule.date.strftime "%d/%m/%Y" %></td>
+              <td class="text-center"><%= exam_schedule.start.to_s(:time) %>
+                - <%= exam_schedule.finish.to_s(:time) %></td>
+              <td class="text-center"><%= exam_schedule.room.name %></td>
+              <td class="text-center"><%= exam_schedule.registrations.count %>/<%= exam_schedule.room.slot %> chỗ</td>
+              <td>
+                <%= f.input :check_boxes, as: :boolean, label: false, checked_value: exam_schedule.id, unchecked_value: false, input_html: {checked: exam_schedule.registrations.map { |r| r.student }.include?(@student), name: 'schedule[id][]'} %>
+                <!--              <a href="#" class="btn btn-primary btn-sm">Đăng ký</a>-->
+              </td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="modal-footer">
+    <% unless @exam.closed %>
+      <%= f.button :submit, "Lưu", class: 'btn btn-primary' %>
+    <% end %>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+  </div>
+<% end %>
