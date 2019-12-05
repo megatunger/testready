@@ -1,26 +1,5 @@
-<div class="wrapper">
-  <div class="container-fluid">
-    <div class="page-title-box">
-      <div class="row align-items-center">
-        <div class="col-sm-6">
-          <h4 class="page-title">Trang chủ</h4>
-        </div>
-        <div class="col-sm-6">
-          <ol class="breadcrumb float-right">
-            <li class="breadcrumb-item">
-              <a href=<%=root_path%> >
-                <%= @App_Name %>
-              </a>
-            </li>
-            <li class="breadcrumb-item active">Trang chủ</li>
-          </ol>
-        </div>
-      </div>
-      <!-- end row -->
-    </div>
-    <% array = ["primary", "success", "infor", "warning", "danger"] %>
-  <%= render partial: "dashboard_student/index/studentCourses" %>
-  </div>
-</div>
+<% content_for(:html_title) { 'Trang chủ' } %>
+<% array = ["primary", "success", "infor", "warning", "danger"] %>
+<%= render partial: "dashboard_student/index/studentCourses" %>
 
 

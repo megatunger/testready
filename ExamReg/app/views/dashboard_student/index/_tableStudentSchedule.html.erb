@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <div class="panel panel-default">
+      <div class="">
+        <div class= table-responsive">
+          <table class="table">
+            <thead>
+            <tr>
+              <td class="text-center"><strong>SBD</strong></td>
+              <td class="text-center"><strong>Mã môn học</strong></td>
+              <td class="text-center"><strong>Tên môn học</strong></td>
+              <td class="text-center"><strong>Ngày thi</strong></td>
+              <td class="text-center"><strong>Giờ thi</strong></td>
+              <td class="text-center"><strong>Phòng thi</strong></td>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- foreach ($order->lineItems as $line) or some such thing here -->
+            <% @registrations.each_with_index do |registration| %>
+              <% if registration.student_id == @student.id %>
+                <% course = courseSchedule(registration)  %>
+                <% exam_schedule = @exam_schedules.find(registration.exam_schedule_id)%>
+                <tr>
+                  <td class="text-center"><%= registration.id %></td>
+                  <td class="text-center"><%= course.courseID %></td>
+                  <td class="text-center"><%= course.name %></td>
+                  <td class="text-center"><%= exam_schedule.date.strftime "%d/%m/%Y" %></td>
+                  <td class="text-center"><%= exam_schedule.start.to_s(:time) %> - <%= exam_schedule.finish.to_s(:time) %></td>
+                  <td class="text-center"><%= exam_schedule.room_id %></td>
+                </tr>
+              <% end  %>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="d-print-none mo-mt-2">
+          <div class="float-right">
+            <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light"><i class="fa fa-print"></i></a>
+            <a href="#" class="btn btn-primary waves-effect waves-light">Send</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div> <!-- end row -->
