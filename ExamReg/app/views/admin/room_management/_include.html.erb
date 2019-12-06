@@ -6,8 +6,10 @@
 
 <% content_for :javascript_includes do %>
   <script>
+      var room_id = -1;
       var room_id = $('#roomID').val();
   </script>
+
   <%= javascript_include_tag "jquery-ui/jquery-ui.min.js" %>
   <%= javascript_include_tag "moment/moment.js" %>
   <%= javascript_include_tag "fullcalendar/js/fullcalendar.min.js" %>
@@ -15,6 +17,6 @@
 
   <!-- Alertify js -->
   <%= javascript_include_tag "alertify/js/alertify.js", 'data-turbolinks-track': 'reload'%>
-  <%= javascript_include_tag "pages/admin/room_mangement/alert.js" %>
+  <%= javascript_include_tag "pages/admin/room_mangement/alert_room" %>
 
 <% end %>

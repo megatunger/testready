@@ -18,41 +18,45 @@
     <% if @exam.closed %>
       <h6> Xin lỗi, đã hết hạn thời hạn đăng kí.</h6>
     <% else %>
-      <div class="table-responsive">
-        <table class="table table-hover">
-          <thead>
-          <tr>
-            <th scope="col" class="text-center">Ca thi</th>
-            <th scope="col" class="text-center">Ngày thi</th>
-            <th scope="col" class="text-center">Giờ thi</th>
-            <th scope="col" class="text-center">Phòng thi</th>
-            <th scope="col" class="text-center">Đã đăng kí</th>
-            <th scope="col" class="text-center"></th>
-          </tr>
-          </thead>
-          <tbody>
-          <% @exam_schedules.each_with_index do |exam_schedule, index| %>
+      <% if @courseStudents.where(course_id: @course.id, student_id: @student.id).first.banned %>
+        <h6> Xin lỗi, bạn đã bị cấm thi. </h6>
+      <% else %>
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
             <tr>
-              <td class="text-center"><%= index += 1 %></td>
-              <td class="text-center"><%= exam_schedule.date.strftime "%d/%m/%Y" %></td>
-              <td class="text-center"><%= exam_schedule.start.to_s(:time) %>
-                - <%= exam_schedule.finish.to_s(:time) %></td>
-              <td class="text-center"><%= exam_schedule.room.name %></td>
-              <td class="text-center"><%= exam_schedule.registrations.count %>/<%= exam_schedule.room.slot %> chỗ</td>
-              <td>
-                <%= f.input :check_boxes, as: :boolean, label: false, checked_value: exam_schedule.id, unchecked_value: false, input_html: {checked: exam_schedule.registrations.map { |r| r.student }.include?(@student), name: 'schedule[id][]'} %>
-                <!--              <a href="#" class="btn btn-primary btn-sm">Đăng ký</a>-->
-              </td>
+              <th scope="col" class="text-center">Ca thi</th>
+              <th scope="col" class="text-center">Ngày thi</th>
+              <th scope="col" class="text-center">Giờ thi</th>
+              <th scope="col" class="text-center">Phòng thi</th>
+              <th scope="col" class="text-center">Đã đăng kí</th>
+              <th scope="col" class="text-center"></th>
             </tr>
-          <% end %>
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+            <% @exam_schedules.each_with_index do |exam_schedule, index| %>
+              <tr>
+                <td class="text-center"><%= index += 1 %></td>
+                <td class="text-center"><%= exam_schedule.date.strftime "%d/%m/%Y" %></td>
+                <td class="text-center"><%= exam_schedule.start.to_s(:time) %>
+                  - <%= exam_schedule.finish.to_s(:time) %></td>
+                <td class="text-center"><%= exam_schedule.room.name %></td>
+                <td class="text-center"><%= exam_schedule.registrations.count %>/<%= exam_schedule.room.slot %> chỗ</td>
+                <td>
+                  <%= f.input :check_boxes, as: :boolean, label: false, checked_value: exam_schedule.id, unchecked_value: false, input_html: {checked: exam_schedule.registrations.map { |r| r.student }.include?(@student), name: 'schedule[id][]'} %>
+                  <!--              <a href="#" class="btn btn-primary btn-sm">Đăng ký</a>-->
+                </td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% end %>
     <% end %>
   </div>
 
   <div class="modal-footer">
-    <% unless @exam.closed %>
+    <% unless @exam.closed || @courseStudents.where(course_id: @course.id, student_id: @student.id).first.banned %>
       <%= f.button :submit, "Lưu", class: 'btn btn-primary' %>
     <% end %>
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>

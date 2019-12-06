@@ -1,6 +1,6 @@
 <%= simple_form_for(@room, :url => admin_room_management_path , remote: request.xhr?, html: { data: { modal: true }, id: 'form_edit_room' }) do |f| %>
   <div class="modal-header">
-    <h5 class="modal-title mt-0" id="myLargeModalLabel">Sửa thông tin phòng: <%=@room.name%></h5>
+    <h5 class="modal-title mt-0" id="myLargeModalLabel">Sửa thông tin phòng thi: <%=@room.name%></h5>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
