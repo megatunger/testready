@@ -4,7 +4,7 @@ module Admin
     respond_to :html, :json, :js
 
     def index
-      @last_exam_schedules = Exam.last.exam_schedules
+      @last_exam_schedules = Exam&.last&.exam_schedules
     end
 
     def new
@@ -44,7 +44,7 @@ module Admin
 
     def set_instance_course
       @course = @courses.find(params.require(:id))
-      @last_exam_schedules = Exam.last.exam_schedules.where(course_id: @course.id)
+      @last_exam_schedules = Exam&.last&.exam_schedules&.where(course_id: @course.id)
     end
 
     def get_registrations_of_course

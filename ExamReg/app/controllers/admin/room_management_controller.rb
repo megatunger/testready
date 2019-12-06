@@ -30,10 +30,11 @@ module Admin
     end
 
     def update
-      if check_room_slot_available
-        @room.update(room_params)
-        respond_modal_with @room, location: admin_room_management_path(@room)
+      @room.update(room_params)
+      unless check_room_slot_available
+        @room.slot = -99
       end
+      respond_modal_with @room, location: admin_room_management_path(@room)
     end
 
     def room_schedule

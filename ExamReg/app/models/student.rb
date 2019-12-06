@@ -3,7 +3,7 @@ class Student < ApplicationRecord
   has_many :course_students
   has_many :courses, through: :course_students
   has_many :registrations
-  has_one :user
+  has_one :user, dependent: :destroy
   
   validates :firstName, :lastName,format: { with: /[a-zA-Z]/}, presence: true
   validates :studentID, :classID, presence: true

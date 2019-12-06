@@ -35,10 +35,11 @@ module Admin
     end
 
     def create
-      params[:exam_schedule][:room].each do |room_id|
-        if room_id.to_i != 0
+      params[:exam_schedule][:room_id].each do |room_id|
+        if room_id.to_i!=0
           room = @rooms.find(room_id.to_i)
           @exam_schedule = ExamSchedule.new(exam_schedule_params)
+          @exam_schedule.exam_id = @exam.id
           @exam_schedule.room_id = room.id
           @exam_schedule.save
         end

@@ -32,7 +32,12 @@ module Admin
     end
 
     def deleteAll
-      @students.destroy_all
+      Room.destroy_all
+      Registration.destroy_all
+      Exam.destroy_all
+      Student.destroy_all
+      Course.destroy_all
+      CourseStudent.destroy_all
       @students.reload
       render json: {status: 'success'}, status: 200
     end
@@ -80,6 +85,7 @@ module Admin
     def perform
       # update_stage('Đang nhập danh sách học sinh')
       parseStudent
+      parseCourse
       parseStudentCourse
       parseStudentCourseBanned
     end
@@ -111,6 +117,22 @@ module Admin
         # update_progress
       end
       puts "Student count: #{Student.count}"
+    end
+
+    def parseCourse
+      worksheet = @workbook['MONHOC']
+      rows = worksheet.map {|row| row && row.cells.each { |cell| cell && cell.value != nil}}
+      last_row = rows.size
+      last_column = rows.compact.max_by{|row| row.size}.size
+      (1..last_row-1).each do |i|
+        maMH = rows[i][0].value
+        tenMonHoc = rows[i][1].value
+        soTinChi = rows[i][2].value
+        soTinChi = soTinChi
+        a = Course.create(courseID: maMH, name: tenMonHoc, credit: soTinChi.to_i)
+        # byebug
+      end
+      puts "Course count: #{Course.count}"
     end
 
     def parseStudentCourse
