@@ -32,11 +32,11 @@ var baseURL = '/admin/room/';
     function sendDeleteRequest() {
         jQuery.ajax({
                 type: 'DELETE',
-                url: baseURL+'/'+ exam_id,
+                url: baseURL+'/'+ room_id,
                 contentType: "text/plain",
                 dataType: 'json',
                 success: function (data) {
-                    alertify.success("Đã xoá lớp học");
+                    alertify.success("Đã xoá phòng thi");
                     window.location.href=baseURL;
                 },
                 error: function (e) {
@@ -52,7 +52,7 @@ var baseURL = '/admin/room/';
     demo("#alertify-confirm", function (ev) {
         console.log(ev);
         // console.log( $("#alertify-confirm").attr("data-exam"));
-        alertify.confirm("Bạn có muốn xoá kì thi không?", function (ev) {
+        alertify.confirm("Bạn có muốn xoá phòng thi không?", function (ev) {
             ev.preventDefault();
             sendDeleteRequest();
         }, function(ev) {

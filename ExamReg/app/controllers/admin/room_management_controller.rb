@@ -30,8 +30,10 @@ module Admin
     end
 
     def update
-      @room.update(room_params)
-      respond_modal_with @room, location: admin_room_management_path(@room)
+      if check_room_slot_available
+        @room.update(room_params)
+        respond_modal_with @room, location: admin_room_management_path(@room)
+      end
     end
 
     def room_schedule
@@ -55,6 +57,18 @@ module Admin
 
     def setInstanceRoomManagement
       @room = @rooms.find(params.require(:id))
+    end
+
+    def check_room_slot_available
+      check = true
+      max = params[:room][:slot].to_i
+      @room.exam_schedules.each do |exam_schedule|
+        if exam_schedule.registrations.count.to_i > max
+          check = false
+          break
+        end
+      end
+      return check
     end
   end
 end
