@@ -1,7 +1,7 @@
 module Admin::CourseManagementHelper
   def registrations_percent(course)
     registrations = Array.new
-    @last_exam_schedules.where(course_id: course.id)&.each do |exam_schedule|
+    @last_exam_schedules&.where(course_id: course.id)&.each do |exam_schedule|
       registrations_of_es = exam_schedule.registrations
       registrations_of_es.each do |registration|
         registrations << registration

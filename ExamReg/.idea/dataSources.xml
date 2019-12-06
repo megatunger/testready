@@ -19,5 +19,17 @@
         <property name="enable_load_extension" value="true" />
       </driver-properties>
     </data-source>
+    <data-source source="LOCAL" name="User Data Source -" uuid="e3ab203b-bbc9-45d6-9ddb-d000b91f6037">
+      <driver-ref>5fa49150-3fb5-4244-ab05-ffffd2e7ea6c</driver-ref>
+      <synchronize>true</synchronize>
+      <configured-by-url>true</configured-by-url>
+      <jdbc-driver>java.sql.Driver</jdbc-driver>
+    </data-source>
+    <data-source source="LOCAL" name="PostgreSQL - test_ready_db@localhost" uuid="f31cdffd-1c50-4605-89fc-10009447e2af">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/test_ready_db</jdbc-url>
+    </data-source>
   </component>
 </project>

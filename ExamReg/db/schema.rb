@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2019_10_31_095822) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "course_students", force: :cascade do |t|
-    t.integer "student_id"
-    t.integer "course_id"
+    t.bigint "student_id"
+    t.bigint "course_id"
     t.boolean "banned"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -49,8 +52,8 @@ ActiveRecord::Schema.define(version: 2019_10_31_095822) do
   end
 
   create_table "exam_courses", force: :cascade do |t|
-    t.integer "exam_id"
-    t.integer "course_id"
+    t.bigint "exam_id"
+    t.bigint "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_exam_courses_on_course_id"
@@ -58,9 +61,9 @@ ActiveRecord::Schema.define(version: 2019_10_31_095822) do
   end
 
   create_table "exam_schedules", force: :cascade do |t|
-    t.integer "exam_id"
-    t.integer "course_id"
-    t.integer "room_id"
+    t.bigint "exam_id"
+    t.bigint "course_id"
+    t.bigint "room_id"
     t.date "date"
     t.time "start"
     t.time "finish"
@@ -80,8 +83,8 @@ ActiveRecord::Schema.define(version: 2019_10_31_095822) do
   end
 
   create_table "registrations", force: :cascade do |t|
-    t.integer "student_id"
-    t.integer "exam_schedule_id"
+    t.bigint "student_id"
+    t.bigint "exam_schedule_id"
     t.integer "SBD"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -92,7 +95,7 @@ ActiveRecord::Schema.define(version: 2019_10_31_095822) do
   create_table "rooms", force: :cascade do |t|
     t.string "name"
     t.integer "slot"
-    t.integer "exam_schedules_id"
+    t.bigint "exam_schedules_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["exam_schedules_id"], name: "index_rooms_on_exam_schedules_id"
@@ -121,7 +124,7 @@ ActiveRecord::Schema.define(version: 2019_10_31_095822) do
     t.string "confirmation_token", limit: 128
     t.string "remember_token", limit: 128, null: false
     t.string "role", limit: 64
-    t.integer "student_id"
+    t.bigint "student_id"
     t.index ["email"], name: "index_users_on_email"
     t.index ["remember_token"], name: "index_users_on_remember_token"
     t.index ["student_id"], name: "index_users_on_student_id"
