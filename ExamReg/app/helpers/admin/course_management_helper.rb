@@ -7,7 +7,11 @@ module Admin::CourseManagementHelper
         registrations << registration
       end
     end
-    registrations.count.fdiv(course.students.count)*100.to_i
+    if (course.students.count == 0)
+      return 0.0
+    else
+      return registrations.count.fdiv(course.students.count)*100.to_i
+    end
   end
 
   def check_banned(student)

@@ -7,6 +7,8 @@ class Course < ApplicationRecord
 
   validates :courseID, :name, :credit, presence: true
   validates :courseID, uniqueness: true
+  validates :courseID, format: { with: /[a-zA-Z0-9]/}, presence: true
+  validates :credit, numericality: { less_than_or_equal_to: 10, only_integer: true}
 
   has_one :exam_course
 

@@ -5,7 +5,8 @@ class Student < ApplicationRecord
   has_many :registrations
   has_one :user
   
-  validates :firstName, :lastName, :studentID, :classID, presence: true
+  validates :firstName, :lastName,format: { with: /[a-zA-Z]/}, presence: true
+  validates :studentID, :classID, presence: true
   validates :studentID, uniqueness: true
 
   after_create do

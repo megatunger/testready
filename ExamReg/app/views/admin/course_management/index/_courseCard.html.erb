@@ -24,7 +24,7 @@
     <p class="text-muted mt-2 mb-0">Tỉ lệ hoàn thành đăng kí kì thi gần nhất<span class="float-right"><%=course_percents%>%</span></p>
 
     <div class="mt-4">
-      <%= link_to "Xem danh sách đăng kí của kì thi gần nhất", admin_course_path(course), class: 'btn btn-block btn-lg btn-primary waves-effect waves-light mr-2 mt-2', data: { modal: true } %>
+      <%= link_to "Xem danh sách đăng ký của kỳ thi gần nhất", admin_course_path(course), class: 'btn btn-block btn-lg btn-primary waves-effect waves-light mr-2 mt-2', data: { modal: true } %>
       <%= link_to "Sửa thông tin", edit_admin_course_path(course), class: 'btn btn-block btn-outline-warning waves-effect waves-light mt-2', data: { modal: true } %>
       <button type="button" id="alertify-confirm" class="deleteButton btn btn-block btn-outline-danger waves-effect waves-light mt-2" data-course-id=<%=course.id%>>Xoá khoá học</button>
     </div>
