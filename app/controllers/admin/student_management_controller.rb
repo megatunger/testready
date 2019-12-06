@@ -38,6 +38,7 @@ module Admin
       Student.destroy_all
       Course.destroy_all
       CourseStudent.destroy_all
+      @students.destroy_all
       @students.reload
       render json: {status: 'success'}, status: 200
     end
