@@ -106,8 +106,8 @@ def createRootAccount
   User.create(email: "ngattaro@gmail.com", password: "1", role: "student", student_id: 1)
 end
 
-parseStudent
-parseCourse
-parseStudentCourse
-parseStudentCourseBanned
+# parseStudent
+# parseCourse
+# parseStudentCourse
+# parseStudentCourseBanned
 createRootAccount
