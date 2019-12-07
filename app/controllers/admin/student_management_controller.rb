@@ -45,8 +45,8 @@ module Admin
 
     def deleteSelected
       list = params[:id]
-      list.each do |student_id = student_id.to_i|
-        @students.where(studentID: student_id).destroy_all
+      list.each do |student_id|
+        @students.where(studentID: student_id.to_i).destroy_all
       end
       render json: {status: 'success'}, status: 200
     end
