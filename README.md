@@ -55,28 +55,28 @@ Sinh viên đăng nhập vào phần mềm ExamReg mà ở đó đã có thông 
 
 ##### Dashboard Admin
 
-![Login](https://raw.githubusercontent.com/megatunger/testready/master/Images/Image-2.png)
+![DashboardAdmin](https://raw.githubusercontent.com/megatunger/testready/master/Images/Image-2.png)
 
 ##### Quản lí sinh viên
 
-![Login](https://raw.githubusercontent.com/megatunger/testready/master/Images/Image-3.png)
+![StudentManagement](https://raw.githubusercontent.com/megatunger/testready/master/Images/Image-3.png)
 
 ##### Quản lí khoá học
 
-![Login](https://raw.githubusercontent.com/megatunger/testready/master/Images/Image-4.png)
+![CourseManagement](https://raw.githubusercontent.com/megatunger/testready/master/Images/Image-4.png)
 
 ##### Quản lí phòng thi
 
-![Login](https://raw.githubusercontent.com/megatunger/testready/master/Images/Image-5.png)
+![RoomManagement](https://raw.githubusercontent.com/megatunger/testready/master/Images/Image-5.png)
 
 ##### Quản lí lịch thi
 
-![Login](https://raw.githubusercontent.com/megatunger/testready/master/Images/Image-6.png)
+![ScheduleManagement](https://raw.githubusercontent.com/megatunger/testready/master/Images/Image-6.png)
 
 ##### Đăng kí thi
 
-![Login](https://raw.githubusercontent.com/megatunger/testready/master/Images/Image-7.png)
+![Register](https://raw.githubusercontent.com/megatunger/testready/master/Images/Image-7.png)
 
 ##### In phiếu báo dự thi
 
-![Login](https://raw.githubusercontent.com/megatunger/testready/master/Images/Image-8.png)
+![Print](https://raw.githubusercontent.com/megatunger/testready/master/Images/Image-8.png)
