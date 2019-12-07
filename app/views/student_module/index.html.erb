@@ -2,10 +2,10 @@
 <% array = ["primary", "success", "infor", "warning", "danger"] %>
 
   <h4 class="ml-1 mt-0 header-title mb-4 text-center text-danger">
-    <% if @exam.closed %>
-      Đã hết thời hạn đăng ký kỳ thi: <%= @exam.name %>
+    <% if @exam&.closed %>
+      Đã hết thời hạn đăng ký kỳ thi: <%= @exam&.name %>
     <% else %>
-      Đang mở đăng ký kỳ thi: <%= @exam.name%>
+      Đang mở đăng ký kỳ thi: <%= @exam&.name%>
     <% end %>
   </h4>
   <%= render partial: "student_module/index/studentCourses" %>

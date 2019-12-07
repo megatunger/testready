@@ -103,7 +103,6 @@ def createRootAccount
   # Registration.create(student_id: 2, exam_schedule_id: 1)
   User.create(email: "test@gmail.com", password: "test", role: "admin")
   User.create(email: "megatunger@gmail.com", password: "1", role: "admin")
-  User.create(email: "ngattaro@gmail.com", password: "1", role: "student", student_id: 1)
 end
 
 # parseStudent

@@ -38,11 +38,11 @@ Sinh viên đăng nhập vào phần mềm ExamReg mà ở đó đã có thông 
       1
       ```
 
-    - Student:
+    - Student: (studentID@abc.edu.vn - studentID)
 
       ```
-      ngattaro@gmail.com
-      1
+      17021351@abc.edu.vn
+      17021351
       ```
 
       

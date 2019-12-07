@@ -35,7 +35,7 @@ module StudentModule
 
     def set_student_variables
       @exam = Exam.last
-      @exam_schedules = @exam.exam_schedules
+      @exam_schedules = @exam&.exam_schedules
       @student = Student.find(current_user.student_id)
       @courses = @student.courses
       @registrations = Registration.all
