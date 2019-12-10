@@ -7,11 +7,6 @@
   </div>
 
   <div class="modal-body">
-    <% unless @exam_schedule.check_time_available %>
-      <div class="alert alert-danger" role="alert">
-        Tồn tại ca thi trong khoảng thời gian đó.
-      </div>
-    <% end %>
     <%= render 'admin/schedule_management/new/ExamScheduleForm', f: f %>
   </div>
 

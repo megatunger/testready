@@ -1,3 +1,9 @@
+<% unless @exam_schedule.check_time_available %>
+  <div class="alert alert-danger" role="alert">
+    Tồn tại ca thi trong khoảng thời gian đó.
+  </div>
+<% end %>
+
 <div class="form-group row">
   <div class="col-sm-12">
     <%= f.association :exam, label: 'Kì thi', error: 'Vui lòng chọn kì thi', class: 'form-control' %>

@@ -12,6 +12,15 @@ class ExamSchedule < ApplicationRecord
   validate :check_time_available
 
   def time_combine
+    if self.date == nil
+      self.date = Date.today
+    end
+    if self.start == nil
+      self.start = Time.now
+    end
+    if self.finish == nil
+      self.finish = 90.minutes.from_now(Time.now)
+    end
     {:start => DateTime.new(self.date.year, self.date.month, self.date.day, self.start.hour, self.start.min),
      :end => DateTime.new(self.date.year, self.date.month, self.date.day, self.finish.hour, self.finish.min)}
   end
@@ -23,12 +32,13 @@ class ExamSchedule < ApplicationRecord
 
 
   def check_time_available
-    checking_schedules = ExamSchedule.where(exam_id: self.exam_id, room_id: self.room_id).where('start >= ?', self.start).where('finish <= ?', self.finish)
-    if checking_schedules.exists?
+    errors.clear
+    checking_schedules = ExamSchedule.where(exam_id: self.exam_id, room_id: self.room_id).where('start >= ?', self.time_combine[:start]).where('finish <= ?', self.time_combine[:end]).where.not(id: self&.id)
+    if !checking_schedules.empty?
       errors[:base] << "Tồn tại ca thi trong khoảng thời gian đó."
-      false
+      return false
     else
-      true
+      return true
     end
   end
 
