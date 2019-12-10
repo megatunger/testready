@@ -1,6 +1,6 @@
 <% if @exam_schedule.valid? %>
 $('#mainModal').modal('hide').on('hidden.bs.modal', function (e) {
-    location.reload();
+    Turbolinks.visit(window.location);
 });
 <% else %>
 $('#form_edit_exam_schedule').html('<%=j render template: 'admin/schedule_management/edit' %>')

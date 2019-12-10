@@ -1,6 +1,6 @@
 <% if @course.valid? %>
 $('#mainModal').modal('hide').on('hidden.bs.modal', function (e) {
-    location.reload();
+    Turbolinks.visit(window.location);
 });
 <% else %>
 $('#form_edit_course').html('<%=j render template: 'admin/course_management/edit' %>')
