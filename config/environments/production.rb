@@ -90,7 +90,7 @@ Rails.application.configure do
   end
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: "http://megatunger.codes" }
+  config.action_mailer.default_url_options = { host: "http://testready.megatunger.codes" }
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
