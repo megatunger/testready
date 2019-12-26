@@ -33,7 +33,7 @@ class ExamSchedule < ApplicationRecord
 
   def check_time_available
     errors.clear
-    checking_schedules = ExamSchedule.where(exam_id: self.exam_id, room_id: self.room_id).where('start >= ?', self.time_combine[:start]).where('finish <= ?', self.time_combine[:end]).where.not(id: self&.id)
+    checking_schedules = ExamSchedule.where(exam_id: self.exam_id, room_id: self.room_id).where('start < ?', self.time_combine[:start]).where('finish > ?', self.time_combine[:end]).where.not(id: self&.id)
     if !checking_schedules.empty?
       errors[:base] << "Tồn tại ca thi trong khoảng thời gian đó."
       return false
