@@ -1,4 +1,5 @@
 var $dropZone = $("#dropzone").dropzone({
+    acceptedFiles : 'application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
     init: function() {
         this.on("addedfile", function() {
             if (this.files[1]!=null){
