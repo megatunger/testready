@@ -3,7 +3,7 @@
   <%= link_to "Thêm/Xoá môn thi", admin_exam_new_course_path, class: 'btn btn-primary rounded btn-custom btn-block waves-effect waves-light', data: { modal: true } %>
 
   <% if @exam.closed %>
-    <button class="btn btn-success rounded btn-custom btn-block text-uppercase">Đã đóng đăng kí</button>
+    <%= link_to "Đã đóng đăng kí", admin_exam_closed_prompt_path(@exam), class: 'btn btn-success rounded btn-custom btn-block', data: { modal: true } %>
   <% else %>
     <%= link_to "Đóng thời gian đăng kí", admin_exam_closed_prompt_path(@exam), class: 'btn btn-warning rounded btn-custom btn-block waves-effect waves-light', data: { modal: true } %>
   <% end %>

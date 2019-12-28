@@ -1,15 +1,23 @@
 <%= simple_form_for(@exam, :url => admin_exam_closed_path(@exam), method: :put, remote: request.xhr?, html: {data: {modal: true}, id: 'form_closed_exam'}) do |f| %>
 
   <div class="modal-header">
-    <h5 class="modal-title mt-0" id="myLargeModalLabel"><%= "Đóng thời gian đăng kí: #{@exam.name}" %></h5>
+    <% if @exam.closed %>
+      <h5 class="modal-title mt-0" id="myLargeModalLabel"><%= "Mở thời gian đăng kí: #{@exam.name}" %></h5>
+    <% else %>
+      <h5 class="modal-title mt-0" id="myLargeModalLabel"><%= "Đóng thời gian đăng kí: #{@exam.name}" %></h5>
+    <% end %>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
 
   <div class="modal-body">
-    <h6>Bạn có chắc chắn muốn đóng thời gian đăng kí? Hệ thống sẽ tạo số báo danh cho sinh viên theo phòng thi và thao
-      tác này không thể hoàn tác.</h6>
+    <% if @exam.closed %>
+      <h6>Bạn có chắc chắn muốn mở lại kì thi?</h6>
+    <% else %>
+      <h6>Bạn có chắc chắn muốn đóng thời gian đăng kí? Hệ thống sẽ tạo số báo danh cho sinh viên theo phòng thi và thao
+        tác này không thể hoàn tác.</h6>
+    <% end %>
   </div>
 
   <div class="modal-footer">

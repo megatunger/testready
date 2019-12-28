@@ -4,39 +4,46 @@ module Admin
     append_before_action :setInstanceRoomManagement, only: [:edit, :update, :show, :destroy]
     respond_to :html, :json, :js
 
+    # Trang quản lí phòng học
     def index
     end
 
     def show
     end
 
+    # Tạo phòng học mới
     def new
       @room = @rooms.new
       respond_modal_with @room
     end
 
+    # Xoá phòng học
     def destroy
       @rooms.destroy(@room.id)
       @rooms.reload
     end
 
+    # Tạo phòng học
     def create
       @room = @rooms.create(room_params)
       respond_modal_with @room, location: admin_room_management_index_path
     end
 
+    # Sửa phòng học
     def edit
       respond_modal_with @room
     end
 
+    # Cập nhật thông tin phòng học
     def update
       @room.update(room_params)
       unless check_room_slot_available
-        @room.slot = -99
+        @room.slot = -99 # Nếu số chỗ không hợp lệ, gán lại một số âm để báo về phía front-end
       end
       respond_modal_with @room, location: admin_room_management_path(@room)
     end
 
+    # Hiện lịch phòng học
     def room_schedule
       if params[:id].to_i == -1 # All rooms schedule
         @schedules = ExamSchedule.all

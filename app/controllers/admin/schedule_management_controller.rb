@@ -5,6 +5,7 @@ module Admin
     append_before_action :set_instance_new_exam_schedule, only: [:new, :create]
     respond_to :html, :json, :js, :pdf
 
+    # Trang quản lí lịch thi
     def index
       if params[:course] != nil
         @course = @courses.find(params[:course].to_i)
@@ -12,10 +13,12 @@ module Admin
       end
     end
 
+    # Trang hiện lịch thi
     def show
       respond_modal_with @exam_schedule
     end
 
+    # Xuất lịch thi ra pdf
     def export_pdf
       @exam_schedule = @exam.exam_schedules.find(params[:schedule_id])
       @course = @exam_schedule.course
