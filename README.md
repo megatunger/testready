@@ -10,7 +10,7 @@ Sinh viên đăng nhập vào phần mềm ExamReg mà ở đó đã có thông 
 
 - Công nghệ: Ruby on Rails 5.2.3
 
-- Demo: http://testready.megatunger.codes
+- Demo: https://testready-megatunger.herokuapp.com/
 
 - Khung kiến trúc:
 
