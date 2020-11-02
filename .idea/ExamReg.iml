@@ -28,16 +28,12 @@
     </content>
     <orderEntry type="jdk" jdkName="rbenv: 2.6.5" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="addressable (v2.7.0, rbenv: 2.6.5) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="archive-zip (v0.12.0, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="arel (v9.0.0, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.13, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bindex (v0.8.1, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bootsnap (v1.4.5, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.17.2, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="byebug (v11.0.1, rbenv: 2.6.5) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="childprocess (v3.0.0, rbenv: 2.6.5) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="chromedriver-helper (v2.1.1, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-rails (v4.2.2, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script (v2.4.1, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script-source (v1.12.2, rbenv: 2.6.5) [gem]" level="application" />
@@ -45,7 +41,6 @@
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.9.0, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="execjs (v2.7.0, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v0.4.2, rbenv: 2.6.5) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="httpclient (v2.8.3, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.9.1, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jquery-rails (v4.3.5, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="listen (v3.1.5, rbenv: 2.6.5) [gem]" level="application" />
@@ -80,7 +75,6 @@
     <orderEntry type="library" scope="PROVIDED" name="web-console (v3.7.0, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-driver (v0.7.1, rbenv: 2.6.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-extensions (v0.1.4, rbenv: 2.6.5) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="xpath (v3.2.0, rbenv: 2.6.5) [gem]" level="application" />
   </component>
   <component name="RModuleSettingsStorage">
     <LOAD_PATH number="0" />
